@@ -1,0 +1,1 @@
+/home/annenpolka/.config/kak/kakrc
