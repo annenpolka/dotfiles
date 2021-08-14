@@ -1,1 +1,0 @@
-/home/annenpolka/.zprezto/runcoms/zshrc
