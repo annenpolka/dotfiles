@@ -1,0 +1,21 @@
+### Starship prompt
+zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)'
+zinit light starship/starship
+
+### history search <C-r>
+zinit light zdharma/history-search-multi-word
+#### highlighting, auto-completion, sugesstion
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+    
+zinit snippet PZTM::directory
+
+### z jump
+zinit light "agkozak/zsh-z"
+
+zinit wait"1" lucid light-mode for b4b4r07/enhancd

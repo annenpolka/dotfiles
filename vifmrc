@@ -11,7 +11,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=kak
+set vicmd=nvim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -489,19 +489,19 @@ nnoremap K 10k
 
 " fzf integration
 command! FZFlocate : set noquickview
-                  \| let $FZF_PICK = term('locate $HOME | fzf --height 10 2>/dev/tty')
+                  \| let $FZF_PICK = term('locate $HOME | sk --height 10 2>/dev/tty')
                   \| if $FZF_PICK != ''
                   \|     execute 'goto' fnameescape($FZF_PICK)
                   \| endif
 command! FZFfind : set noquickview
-                \| let $FZF_PICK = term('find | fzf --height 10 2>/dev/tty')
+                \| let $FZF_PICK = term('find | sk --height 10 2>/dev/tty')
                 \| if $FZF_PICK != ''
                 \|     execute 'goto' fnameescape($FZF_PICK)
                 \| endif
 
 " variation that automatically enters directories
 command! FZFlocate : set noquickview
-                  \| let $FZF_PICK = term('locate $HOME | fzf --height 10 2>/dev/tty')
+                  \| let $FZF_PICK = term('locate $HOME | sk --height 10 2>/dev/tty')
                   \| if $FZF_PICK != ''
                   \|     execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
                   \| endif
