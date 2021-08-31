@@ -10,38 +10,6 @@ fi
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
-## ページャーをbatにする
-export PAGER='bat'
-
-## Windows側のGoパッケージのパス
-## gocopy, gopasteによるクリップボードアクセスに使う
-export PATH="$PATH:/mnt/c/Users/lance/go/bin"
-
-## Windows側のあれそれを都合よく叩く用パス
-export PATH="$PATH:/mnt/c/users/lance/.path/"
-
-## ~/binにWin32yankを置いたので
-export PATH="$PATH:$HOME/bin/"
-
-## cargo系パス
-export PATH="$PATH:$HOME/.cargo/bin"
-
-## codeコマンドのパス通す
-export PATH="$PATH:/mnt/e/Microsoft VS Code/bin"
-
-## pipenvの仮想環境をプロジェクトローカルに作る
-export PIPENV_VENV_IN_PROJECT=true
-
-## Windows側のzenhan叩く
-export zenhan='/mnt/c/Users/lance/scoop/shims/zenhan.exe'
-
-## alias for Python3, pip3
-alias python=python3 
-alias pip=pip3
-
-## x server
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-
 # --- aliases
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
@@ -74,17 +42,6 @@ if [[ $(command -v exa) ]]; then
   
 # --- unsettled
 
-
-## Windows側でopen
-function open() { /mnt/c/Windows/System32/cmd.exe /c start $(wslpath -w $1) }
-
-## Go
-export PATH=$PATH:/usr/local/go/bin
-
-## パッケージの探索範囲絡みのパスらしい
-export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
-
-
 # direnv
 eval "$(direnv hook zsh)"
 export DIRENV_LOG_FORMAT="" # 静かにしてもらう
@@ -92,6 +49,12 @@ export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 
 # --- deprecated
  
+# starship
+# eval "$(starship init zsh)"
+
+## zplug
+# export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
+# source ~/.zplugrc
 
 # --- Initialization
 
@@ -99,12 +62,6 @@ export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 export SDKMAN_DIR="/home/annenpolka/.sdkman"
 [[ -s "/home/annenpolka/.sdkman/bin/sdkman-init.sh" ]] && source "/home/annenpolka/.sdkman/bin/sdkman-init.sh"
 
-# starship
-# eval "$(starship init zsh)"
-
-## zplug
-# export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
-# source ~/.zplugrc
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -130,3 +87,11 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 # my zinit settings
 source ~/.zinitrc
+
+#compdef toggl
+_toggl() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _TOGGL_COMPLETE=complete-zsh  toggl)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
+  compdef _toggl toggl
+fi
