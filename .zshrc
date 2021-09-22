@@ -10,6 +10,8 @@ fi
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
+
+
 # --- aliases
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
@@ -20,7 +22,7 @@ function vicd() {
     fi
     cd "$dst"
 }
-bindkey -s '^E' '^a vicd . \n'
+bindkey -s '^E' 'vicd . \n'
 
 ## lazygit = lg
 alias lg=lazygit
@@ -95,3 +97,5 @@ _toggl() {
 if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
   compdef _toggl toggl
 fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
