@@ -1,0 +1,2 @@
+#!/bin/sh
+run-or-raise 'role="pop-up" && name ~ ".*Todoist$"' gtk-launch webapp-Todoist4217.desktop

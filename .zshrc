@@ -1,4 +1,8 @@
 # --- envvars
+## keybind
+bindkey -e
+## auto cd
+setopt AUTO_CD
 ## history 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
@@ -7,7 +11,6 @@ export HISTSIZE=1000000000
 # auto cd
 setopt AUTO_CD
 
-# --- aliases
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
     local dst="$(command vifm $1 $2 --choose-dir -)"
@@ -21,6 +24,8 @@ bindkey -s '^E' 'vicd . \n'
 
 ## lazygit = lg
 alias lg=lazygit
+
+
 ## exaで幸せなlsライフを送る
 if [[ $(command -v exa) ]]; then
   alias e='exa --icons'
@@ -59,9 +64,5 @@ export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 export SDKMAN_DIR="/home/annenpolka/.sdkman"
 [[ -s "/home/annenpolka/.sdkman/bin/sdkman-init.sh" ]] && source "/home/annenpolka/.sdkman/bin/sdkman-init.sh"
 
-# my zinit settings
-# source ~/.zinitrc
-
-# volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
