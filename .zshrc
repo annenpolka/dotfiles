@@ -2,14 +2,15 @@
 ## keybind
 bindkey -e
 ## auto cd
-set auto_cd
+setopt AUTO_CD
 ## history 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
+## zsh-z
+export ZSHZ_CASE=smart
 
-# --- aliases
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
     local dst="$(command vifm $1 $2 --choose-dir -)"
@@ -23,6 +24,8 @@ bindkey -s '^E' 'vicd . \n'
 
 ## lazygit = lg
 alias lg=lazygit
+
+
 ## exaで幸せなlsライフを送る
 if [[ $(command -v exa) ]]; then
   alias e='exa --icons'
