@@ -283,6 +283,7 @@ static const Rule rules[] = {
 	/* class                        instance  title  tags mask  isfloating  monitor */
 	{"Pavucontrol",                 NULL,     NULL,  0,         1,          -1},
 	{"Onboard",                     NULL,     NULL,  0,         1,          -1},
+	{"Ulauncher",                   NULL,     NULL,  0,         2,          -1},
 	{"floatmenu",                   NULL,     NULL,  0,         1,          -1},
 	{"Welcome.py",                  NULL,     NULL,  0,         1,          -1},
 	{"Pamac-installer",             NULL,     NULL,  0,         1,          -1},
@@ -294,14 +295,18 @@ static const Rule rules[] = {
 	{"org-wellkord-globonote-Main", NULL,     NULL,  0,         1,          -1},
 	{"Peek",                        NULL,     NULL,  0,         1,          -1},
 	{"ROX-Filer",                   NULL,     NULL,  0,         0,          -1},
-	{"obsidian",                    NULL,     NULL,  2,         0,          -1},
-	{"Code",                        NULL,     NULL,  4,         0,          -1},
-	{"WebApp-Todoist4217","todoist.com__app", NULL,  8,         0,          -1},
-	{"Google-chrome", "todoist.com__app",     NULL,  8,         0,          -1},
-	{"WebApp-Todoist4217","track.toggl.com__timer",NULL, 8,     0,          -1},
-	{"Google-chrome",    "google-chrome",     NULL,  1,         0,          -1},
-	{"WebApp-Todoist4217","google-chrome",    NULL,  1,         0,           1},
+	{"obsidian",                    NULL,     NULL,  2,         0,           1},
+	{"Code",                        NULL,     NULL,  4,         0,           0},
+	{"WebApp-Todoist4217","todoist.com__app", NULL,  8,         0,           1},
+	{"Google-chrome", "todoist.com__app",     NULL,  8,         0,           1},
+	{"WebApp-Todoist4217","track.toggl.com__timer",NULL, 8,     0,           1},
+	{"Google-chrome","track.toggl.com__timer",NULL,  8,         0,           1},
+	{"Google-chrome",    "google-chrome",     NULL,  1,         0,           0},
+	{"WebApp-Todoist4217","google-chrome",    NULL,  1,         0,           0},
 	{"Write",                       NULL,     NULL, 16,         0,          -1},
+	{"hearthstonedecktracker.exe",  NULL,     NULL, 32,         0,          0},
+	{"hearthstone.exe",             NULL,     NULL, 32,         0,          0},
+	{"battle.net.exe",              NULL,     NULL, 32,         0,          0},
 };
 
 /* layout(s) */
