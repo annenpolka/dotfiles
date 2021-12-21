@@ -11,6 +11,10 @@ export HISTSIZE=1000000000
 # auto cd
 setopt AUTO_CD
 
+# local exec path
+export PATH="$HOME/bin:$PATH"
+
+
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
     local dst="$(command vifm $1 $2 --choose-dir -)"
