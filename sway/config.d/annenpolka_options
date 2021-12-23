@@ -1,0 +1,5 @@
+# focus doesn't follow mouse
+focus_follows_mouse no
+
+# focus on run-or-raise
+focus_on_window_activation focus

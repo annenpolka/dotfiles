@@ -1,2 +1,2 @@
 #!/bin/sh
-run-or-raise 'role="browser" && name ~ ".*Chrome$"' ~/.config/instantos/default/browser
+run-or-raise 'role="browser" && name ~ ".*Chrome$"' google-chrome-stable
