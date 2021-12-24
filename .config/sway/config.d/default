@@ -128,7 +128,7 @@ exec swayidle -w\
     # bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+Shift+f floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -202,6 +202,7 @@ bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 p
     bindsym $mod+n exec thunar
     bindsym $mod+f exec ~/.config/sway/scripts/rora_apps/rora_browser
     bindsym $mod+o exec ~/.config/sway/scripts/rora_apps/rora_obsidian
+    bindsym $mod+c exec ~/.config/sway/scripts/rora_apps/rora_code
 
 #
 # Screenshots
@@ -211,4 +212,14 @@ bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 p
 #
 # Keybindings List
 #
-   bindsym $mod+t exec xed ~/.config/sway/cheatsheet    
+    bindsym $mod+t exec xed ~/.config/sway/cheatsheet    
+
+#
+# Power to Suspend
+#
+    bindsym XF86PowerOff exec systemctl suspend
+
+#
+# notification center
+#
+    bindsym $mod+Shift+n exec swaync-client -t -sw
