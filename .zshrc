@@ -76,3 +76,5 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # zinit
 source /usr/share/zinit/zinit.zsh
 source ~/.zinitrc
+
+source /home/annenpolka/.config/broot/launcher/bash/br
