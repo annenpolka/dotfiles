@@ -3,10 +3,12 @@
 bindkey -e
 ## auto cd
 setopt AUTO_CD
+
 ## history 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
+export SAVEHIST=100000000
 
 # auto cd
 setopt AUTO_CD
@@ -70,3 +72,9 @@ export SDKMAN_DIR="/home/annenpolka/.sdkman"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# zinit
+source /usr/share/zinit/zinit.zsh
+source ~/.zinitrc
+
+source /home/annenpolka/.config/broot/launcher/bash/br
