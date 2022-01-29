@@ -17,7 +17,12 @@ zinit wait lucid for \
 zinit snippet PZTM::directory
 
 ### z jump
-zinit light "agkozak/zsh-z"
+#zinit light "agkozak/zsh-z"
+zinit ice wait"1" as"command" from"gh-r" lucid \
+  mv"zoxide*/zoxide -> zoxide" \
+  atclone"./zoxide init zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh" nocompile'!'
+zinit light ajeetdsouza/zoxide
 
 ### enhancd
 zinit wait"1" lucid light-mode for b4b4r07/enhancd

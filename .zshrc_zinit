@@ -42,6 +42,8 @@ if [[ $(command -v exa) ]]; then
   fi
 
   
+alias nvtime="nvim --startuptime ./startup.log"
+
 # --- unsettled
 
 # direnv
@@ -91,3 +93,5 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 source ~/.zinitrc
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
