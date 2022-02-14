@@ -1,4 +1,6 @@
-# --- envvars
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                          envvars                         │
+#  ╰──────────────────────────────────────────────────────────╯
 ## keybind
 bindkey -e
 ## auto cd
@@ -22,6 +24,13 @@ function vicd() {
 }
 bindkey -s '^E' 'vicd . \n'
 
+# include ac-library
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                        aliases                           │
+#  ╰──────────────────────────────────────────────────────────╯
+
 ## lazygit = lg
 alias lg=lazygit
 
@@ -39,10 +48,14 @@ if [[ $(command -v exa) ]]; then
   alias lt=et
   alias eta='exa -T -a -I "node_modules|.git|.cache" --color=always --icons | less -r'
   alias lta=eta
-  fi
+fi
 
   
+## neovim startup time check
 alias nvtime="nvim --startuptime ./startup.log"
+
+## initialize thefuck
+eval $(thefuck --alias)
 
 # --- unsettled
 
@@ -51,16 +64,9 @@ eval "$(direnv hook zsh)"
 export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 
 
-# --- deprecated
- 
-# starship
-# eval "$(starship init zsh)"
-
-## zplug
-# export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
-# source ~/.zplugrc
-
-# --- Initialization
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                      Initialization                      │
+#  ╰──────────────────────────────────────────────────────────╯
 
 ##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/annenpolka/.sdkman"
