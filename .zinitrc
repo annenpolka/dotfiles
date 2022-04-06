@@ -15,6 +15,7 @@ zinit wait lucid for \
 
 ### directory presets from prezto
 zinit snippet PZTM::directory
+zinit snippet PZTM::command-not-found
 
 ### z jump
 #zinit light "agkozak/zsh-z"
