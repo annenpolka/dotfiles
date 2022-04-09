@@ -1,2 +1,2 @@
 #!/bin/sh
-run-or-raise 'role="browser" && name ~ ".*Chrome$"' google-chrome-stable
+run-or-raise 'role="browser" && name ~ ".*Vivaldi$"' vivaldi-stable

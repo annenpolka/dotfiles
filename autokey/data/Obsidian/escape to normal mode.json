@@ -2,10 +2,8 @@
     "type": "script",
     "description": "escape to normal mode",
     "store": {},
-    "modes": [
-        1
-    ],
-    "usageCount": 68,
+    "modes": [],
+    "usageCount": 97,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,

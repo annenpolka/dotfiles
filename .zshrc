@@ -4,7 +4,7 @@ bindkey -e
 ## auto cd
 setopt AUTO_CD
 
-## history 
+## history
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
@@ -16,6 +16,8 @@ setopt AUTO_CD
 # local exec path
 export PATH="$HOME/bin:$PATH"
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
@@ -47,7 +49,11 @@ if [[ $(command -v exa) ]]; then
   alias lta=eta
   fi
 
-  
+
+# python compatiabilty
+alias python3=python
+alias pip3=pip
+
 # --- unsettled
 
 # direnv
@@ -56,7 +62,7 @@ export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 
 
 # --- deprecated
- 
+
 # starship
 # eval "$(starship init zsh)"
 
@@ -78,3 +84,5 @@ source /usr/share/zinit/zinit.zsh
 source ~/.zinitrc
 
 source /home/annenpolka/.config/broot/launcher/bash/br
+
+eval $(thefuck --alias)

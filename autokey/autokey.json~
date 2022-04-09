@@ -13,7 +13,7 @@
         "undoUsingBackspace": true,
         "windowDefaultSize": [
             1149,
-            1235
+            949
         ],
         "hPanePosition": 287,
         "columnWidths": [
@@ -29,10 +29,11 @@
         "scriptGlobals": {},
         "gtkTheme": "classic",
         "gtkExpandedRows": [
-            "0",
-            "2"
+            "2",
+            "4",
+            "0"
         ],
-        "pathLastOpen": "2:0"
+        "pathLastOpen": "4:0"
     },
     "folders": [],
     "toggleServiceHotkey": {
