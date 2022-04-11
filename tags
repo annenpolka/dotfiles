@@ -1,0 +1,679 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/annenpolka/dotfiles/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+#backlight	.config/waybar/style.css	/^#backlight,$/;"	i
+#backlight.icon	.config/waybar/style.css	/^#backlight.icon{$/;"	c
+#battery	.config/waybar/style.css	/^#battery {$/;"	i
+#battery	.config/waybar/style.css	/^#battery,$/;"	i
+#battery.critical	.config/waybar/style.css	/^#battery.critical {$/;"	c
+#battery.critical.discharging	.config/waybar/style.css	/^#battery.critical.discharging {$/;"	c
+#battery.warning	.config/waybar/style.css	/^#battery.warning {$/;"	c
+#battery.warning.discharging	.config/waybar/style.css	/^#battery.warning.discharging {$/;"	c
+#clock	.config/waybar/style.css	/^#clock,$/;"	i
+#cpu	.config/waybar/style.css	/^#cpu,$/;"	i
+#cpu	.config/waybar/style.css	/^#cpu{$/;"	i
+#cpu.critical	.config/waybar/style.css	/^#cpu.critical {$/;"	c
+#cpu.warning	.config/waybar/style.css	/^#cpu.warning {$/;"	c
+#custom-PBPbattery	.config/waybar/style.css	/^#custom-PBPbattery{$/;"	i
+#custom-keyboard-layout	.config/waybar/style.css	/^#custom-keyboard-layout,$/;"	i
+#custom-launcher	.config/waybar/style.css	/^#custom-launcher{$/;"	i
+#custom-power	.config/waybar/style.css	/^#custom-power{$/;"	i
+#custom-weather	.config/waybar/style.css	/^#custom-weather,$/;"	i
+#idle_inhibitor	.config/waybar/style.css	/^#idle_inhibitor,$/;"	i
+#memory	.config/waybar/style.css	/^#memory {$/;"	i
+#memory	.config/waybar/style.css	/^#memory,$/;"	i
+#memory.critical	.config/waybar/style.css	/^#memory.critical {$/;"	c
+#memory.warning	.config/waybar/style.css	/^#memory.warning {$/;"	c
+#mode	.config/waybar/style.css	/^#mode {$/;"	i
+#mode	.config/waybar/style.css	/^#mode,$/;"	i
+#network	.config/waybar/style.css	/^#network,$/;"	i
+#network.disconnected	.config/waybar/style.css	/^#network.disconnected {$/;"	c
+#pulseaudio	.config/waybar/style.css	/^#pulseaudio,$/;"	i
+#pulseaudio	.config/waybar/style.css	/^#pulseaudio{$/;"	i
+#pulseaudio.muted	.config/waybar/style.css	/^#pulseaudio.muted {$/;"	c
+#temperature	.config/waybar/style.css	/^#temperature,$/;"	i
+#temperature.critical	.config/waybar/style.css	/^#temperature.critical {$/;"	c
+#tray	.config/waybar/style.css	/^#tray,$/;"	i
+#waybar	.config/waybar/style.css	/^#waybar {$/;"	i
+#window	.config/waybar/style.css	/^#window {$/;"	i
+#workspaces	.config/waybar/style.css	/^#workspaces{$/;"	i
+#workspaces button	.config/waybar/style.css	/^#workspaces button {$/;"	s
+#workspaces button.focused	.config/waybar/style.css	/^#workspaces button.focused {$/;"	c
+#workspaces button.urgent	.config/waybar/style.css	/^#workspaces button.urgent {$/;"	c
+*	.config/waybar/style.css	/^* {$/;"	s
+0	autokey/autokey.json	/^            "2"$/;"	s	array:settings.gtkExpandedRows
+0	autokey/autokey.json	/^            "<shift>",$/;"	s	array:toggleServiceHotkey.modifiers
+0	autokey/autokey.json	/^            "<super>"$/;"	s	array:configHotkey.modifiers
+0	autokey/autokey.json	/^            1149,$/;"	n	array:settings.windowDefaultSize
+0	autokey/autokey.json	/^            150,$/;"	n	array:settings.columnWidths
+0	autokey/data/Chrome/Down.json	/^            "<ctrl>"$/;"	s	array:hotkey.modifiers
+0	autokey/data/Chrome/Down.json	/^        3$/;"	n	array:modes
+0	autokey/data/Chrome/Up.json	/^            "<ctrl>"$/;"	s	array:hotkey.modifiers
+0	autokey/data/Chrome/Up.json	/^        3$/;"	n	array:modes
+0	autokey/data/My Phrases/Addresses/Home Address.json	/^            "adr"$/;"	s	array:abbreviation.abbreviations
+0	autokey/data/My Phrases/Addresses/Home Address.json	/^        1$/;"	n	array:modes
+0	autokey/data/My Phrases/First phrase.json	/^        2$/;"	n	array:modes
+0	autokey/data/My Phrases/folder.json	/^            "<ctrl>"$/;"	s	array:hotkey.modifiers
+0	autokey/data/My Phrases/folder.json	/^        3$/;"	n	array:modes
+0	autokey/data/Obsidian/escape to normal mode.json	/^            "jk"$/;"	s	array:abbreviation.abbreviations
+0	autokey/data/Todoist/StartToggl.json	/^            "<ctrl>"$/;"	s	array:hotkey.modifiers
+0	autokey/data/Todoist/StartToggl.json	/^        3$/;"	n	array:modes
+1	autokey/autokey.json	/^            "<super>"$/;"	s	array:toggleServiceHotkey.modifiers
+1	autokey/autokey.json	/^            50,$/;"	n	array:settings.columnWidths
+1	autokey/autokey.json	/^            949$/;"	n	array:settings.windowDefaultSize
+2	autokey/autokey.json	/^            100$/;"	n	array:settings.columnWidths
+ALT_FADE_TIME	.config/sway/scripts/swayfader.py	/^ALT_FADE_TIME  = 0.1$/;"	v
+BOT_IN	.config/sway/scripts/swayfader.py	/^BOT_IN         = ALT_FADE_TIME  # bottom window fading in$/;"	v
+BOT_INAC	.config/sway/scripts/swayfader.py	/^BOT_INAC   = 0.9   # bottom window$/;"	v
+BOT_OUT	.config/sway/scripts/swayfader.py	/^BOT_OUT        = ALT_FADE_TIME  # bottom window fading out$/;"	v
+BOT_SWITCH_IN	.config/sway/scripts/swayfader.py	/^BOT_SWITCH_IN  = FADE_TIME      # window becoming bottom window$/;"	v
+BOT_SWITCH_OUT	.config/sway/scripts/swayfader.py	/^BOT_SWITCH_OUT = FADE_TIME      # bottom window becoming window$/;"	v
+CON_AC	.config/sway/scripts/swayfader.py	/^CON_AC     = 1     # active window$/;"	v
+CON_IN	.config/sway/scripts/swayfader.py	/^CON_IN         = 0.15           # window fading in$/;"	v
+CON_INAC	.config/sway/scripts/swayfader.py	/^CON_INAC   = 0.5   # inactive window$/;"	v
+CON_OUT	.config/sway/scripts/swayfader.py	/^CON_OUT        = FADE_TIME      # window fading out$/;"	v
+FADE_TIME	.config/sway/scripts/swayfader.py	/^FADE_TIME      = 0.2$/;"	v
+FLOAT_AC	.config/sway/scripts/swayfader.py	/^FLOAT_AC   = 1     # active floating window$/;"	v
+FLOAT_BOT_IN	.config/sway/scripts/swayfader.py	/^FLOAT_BOT_IN   = FADE_TIME      # floating window fading in from bottom$/;"	v
+FLOAT_BOT_OUT	.config/sway/scripts/swayfader.py	/^FLOAT_BOT_OUT  = FADE_TIME      # floating window fading out from bottom$/;"	v
+FLOAT_IN	.config/sway/scripts/swayfader.py	/^FLOAT_IN       = ALT_FADE_TIME  # floating window fading in$/;"	v
+FLOAT_INAC	.config/sway/scripts/swayfader.py	/^FLOAT_INAC = 0.5  # inactive floating window$/;"	v
+FLOAT_OUT	.config/sway/scripts/swayfader.py	/^FLOAT_OUT      = ALT_FADE_TIME  # floating window fading out$/;"	v
+FRAME_T	.config/sway/scripts/swayfader.py	/^FRAME_T = 0.01  # time taken between each frame of fade$/;"	v
+Fader	.config/sway/scripts/swayfader.py	/^class Fader:$/;"	c
+MAX_TAGLEN	config.def.h	/^#define MAX_TAGLEN /;"	d
+MODKEY	config.def.h	/^#define MODKEY /;"	d
+SHCMD	config.def.h	/^#define SHCMD(/;"	d
+TAGKEYS	config.def.h	/^#define TAGKEYS(/;"	d
+__init__	.config/sway/scripts/swayfader.py	/^    def __init__(self):$/;"	m	class:Fader
+abbr	autokey/data/Sample Scripts/Abbreviation from selection.py	/^retCode, abbr = dialog.input_dialog("New Abbreviation", "Choose an abbreviation for the new phra/;"	v
+abbreviation	autokey/data/Chrome/Down.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Chrome/Up.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Chrome/folder.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/My Phrases/Addresses/Home Address.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/My Phrases/Addresses/folder.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/My Phrases/First phrase.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/My Phrases/Second phrase.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/My Phrases/Third phrase.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/My Phrases/folder.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Obsidian/escape to normal mode.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Obsidian/folder.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Sample Scripts/Display window info.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Sample Scripts/Insert Date.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Sample Scripts/List Menu.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Sample Scripts/Phrase from selection.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Sample Scripts/Selection Test.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Sample Scripts/folder.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Todoist/StartToggl.json	/^    "abbreviation": {$/;"	o
+abbreviation	autokey/data/Todoist/folder.json	/^    "abbreviation": {$/;"	o
+abbreviations	autokey/data/Chrome/Down.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Chrome/Up.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Chrome/folder.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/My Phrases/Addresses/Home Address.json	/^        "abbreviations": [$/;"	a	object:abbreviation
+abbreviations	autokey/data/My Phrases/Addresses/folder.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/My Phrases/First phrase.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/My Phrases/Second phrase.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/My Phrases/Third phrase.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/My Phrases/folder.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Obsidian/escape to normal mode.json	/^        "abbreviations": [$/;"	a	object:abbreviation
+abbreviations	autokey/data/Obsidian/folder.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Sample Scripts/Display window info.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Sample Scripts/Insert Date.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Sample Scripts/List Menu.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Sample Scripts/Phrase from selection.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Sample Scripts/Selection Test.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Sample Scripts/folder.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Todoist/StartToggl.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+abbreviations	autokey/data/Todoist/folder.json	/^        "abbreviations": [],$/;"	a	object:abbreviation
+add_fade	.config/sway/scripts/swayfader.py	/^    def add_fade(self, win, start, target, duration):$/;"	m	class:Fader
+backspace	autokey/data/Chrome/Down.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Chrome/Up.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Chrome/folder.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/My Phrases/Addresses/Home Address.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/My Phrases/Addresses/folder.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/My Phrases/First phrase.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/My Phrases/Second phrase.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/My Phrases/Third phrase.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/My Phrases/folder.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Obsidian/escape to normal mode.json	/^        "backspace": false,$/;"	b	object:abbreviation
+backspace	autokey/data/Obsidian/folder.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Sample Scripts/Display window info.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Sample Scripts/Insert Date.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Sample Scripts/List Menu.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Sample Scripts/Phrase from selection.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Sample Scripts/Selection Test.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Sample Scripts/folder.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Todoist/StartToggl.json	/^        "backspace": true,$/;"	b	object:abbreviation
+backspace	autokey/data/Todoist/folder.json	/^        "backspace": true,$/;"	b	object:abbreviation
+barheight	config.def.h	/^static int barheight;$/;"	v	typeref:typename:int
+bg	.tmux.conf	/^set -g window-active-style 'bg=colour236'$/;"	k
+bg	.tmux.conf	/^set -g window-style 'bg=colour234'$/;"	k
+bordercolors	config.def.h	/^static const char *bordercolors[] = {$/;"	v	typeref:typename:const char * []
+borderpx	config.def.h	/^\/* appearance *\/ static const unsigned int borderpx = 3;		  \/* border pixel of windows *\/ st/;"	v	typeref:typename:const unsigned int
+buttons	config.def.h	/^static Button buttons[] = {$/;"	v	typeref:typename:Button[]
+caretinstantswitchcmd	config.def.h	/^static const char *caretinstantswitchcmd[] = {"rofi", "-show", "window", "-kb-row-down", "Alt+Ta/;"	v	typeref:typename:const char * []
+change_opacity	.config/sway/scripts/swayfader.py	/^def change_opacity(win, trans):$/;"	f
+choice	autokey/data/Sample Scripts/List Menu.py	/^retCode, choice = dialog.list_menu(choices)$/;"	v
+choices	autokey/data/Sample Scripts/List Menu.py	/^choices = ["something", "something else", "a third thing"]$/;"	v
+clipmenucmd	config.def.h	/^static const char *clipmenucmd[] = {"instantclipmenu", NULL};$/;"	v	typeref:typename:const char * []
+clipscrotcmd	config.def.h	/^static const char  *clipscrotcmd[] = { "\/usr\/share\/instantassist\/assists\/s\/c.sh", NULL };$/;"	v	typeref:typename:const char * []
+closebuttoncolors	config.def.h	/^static const char *closebuttoncolors[2][3][3] = {$/;"	v	typeref:typename:const char * [2][3][3]
+codecmd	config.def.h	/^static const char  *codecmd[] = { "bin\/rora_code", NULL };$/;"	v	typeref:typename:const char * []
+col_bg	config.def.h	/^static char col_bg[] = "#121212"; static char col_text[] = "#DFDFDF"; static char col_black[] = /;"	v	typeref:typename:char[]
+col_bg_accent	config.def.h	/^static char col_bg_accent[] = "#384252";$/;"	v	typeref:typename:char[]
+col_bg_accent_hover	config.def.h	/^static char col_bg_accent_hover[] = "#4C5564";$/;"	v	typeref:typename:char[]
+col_bg_hover	config.def.h	/^static char col_bg_hover[] = "#1C1C1C";$/;"	v	typeref:typename:char[]
+col_black	config.def.h	/^static char col_bg[] = "#121212"; static char col_text[] = "#DFDFDF"; static char col_black[] = /;"	v	typeref:typename:char[]
+col_blue	config.def.h	/^static char col_blue[] = "#536DFE";$/;"	v	typeref:typename:char[]
+col_blue_hover	config.def.h	/^static char col_blue_hover[] = "#758afe";$/;"	v	typeref:typename:char[]
+col_green	config.def.h	/^static char col_green[] = "#1e8e3e";$/;"	v	typeref:typename:char[]
+col_green_hover	config.def.h	/^static char col_green_hover[] = "#4ba465";$/;"	v	typeref:typename:char[]
+col_light_blue	config.def.h	/^static char col_light_blue[] = "#89B3F7";$/;"	v	typeref:typename:char[]
+col_light_blue_hover	config.def.h	/^static char col_light_blue_hover[] = "#a1c2f9";$/;"	v	typeref:typename:char[]
+col_light_green	config.def.h	/^static char col_light_green[] = "#81c995";$/;"	v	typeref:typename:char[]
+col_light_green_hover	config.def.h	/^static char col_light_green_hover[] = "#99d3aa";$/;"	v	typeref:typename:char[]
+col_light_red	config.def.h	/^static char col_light_red[] = "#f28b82";$/;"	v	typeref:typename:char[]
+col_light_red_hover	config.def.h	/^static char col_light_red_hover[] = "#f4a19a";$/;"	v	typeref:typename:char[]
+col_light_yellow	config.def.h	/^static char col_light_yellow[] = "#fdd663";$/;"	v	typeref:typename:char[]
+col_light_yellow_hover	config.def.h	/^static char col_light_yellow_hover[] = "#fddd82";$/;"	v	typeref:typename:char[]
+col_red	config.def.h	/^static char col_red[] = "#d93025";$/;"	v	typeref:typename:char[]
+col_red_hover	config.def.h	/^static char col_red_hover[] = "#e05951";$/;"	v	typeref:typename:char[]
+col_text	config.def.h	/^static char col_bg[] = "#121212"; static char col_text[] = "#DFDFDF"; static char col_black[] = /;"	v	typeref:typename:char[]
+col_yellow	config.def.h	/^static char col_yellow[] = "#f9ab00";$/;"	v	typeref:typename:char[]
+col_yellow_hover	config.def.h	/^static char col_yellow_hover[] = "#f9bb33";$/;"	v	typeref:typename:char[]
+columnWidths	autokey/autokey.json	/^        "columnWidths": [$/;"	a	object:settings
+commands	config.def.h	/^static Xcommand commands[] = {$/;"	v	typeref:typename:Xcommand[]
+configHotkey	autokey/autokey.json	/^    "configHotkey": {$/;"	o
+contents	autokey/data/Sample Scripts/Abbreviation from selection.py	/^contents = clipboard.get_selection()$/;"	v
+contents	autokey/data/Sample Scripts/Phrase from selection.py	/^contents = clipboard.get_selection()$/;"	v
+controlcentercmd	config.def.h	/^static const char *controlcentercmd[] = { "instantsettings", NULL};$/;"	v	typeref:typename:const char * []
+decorhints	config.def.h	/^static const int decorhints  = 1;    \/* 1 means respect decoration hints *\/$/;"	v	typeref:typename:const int
+description	autokey/data/Chrome/Down.json	/^    "description": "Down",$/;"	s
+description	autokey/data/Chrome/Up.json	/^    "description": "Up",$/;"	s
+description	autokey/data/My Phrases/Addresses/Home Address.json	/^    "description": "Home Address",$/;"	s
+description	autokey/data/My Phrases/First phrase.json	/^    "description": "First phrase",$/;"	s
+description	autokey/data/My Phrases/Second phrase.json	/^    "description": "Second phrase",$/;"	s
+description	autokey/data/My Phrases/Third phrase.json	/^    "description": "Third phrase",$/;"	s
+description	autokey/data/Obsidian/escape to normal mode.json	/^    "description": "escape to normal mode",$/;"	s
+description	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "description": "Abbreviation from selection",$/;"	s
+description	autokey/data/Sample Scripts/Display window info.json	/^    "description": "Display window info",$/;"	s
+description	autokey/data/Sample Scripts/Insert Date.json	/^    "description": "Insert Date",$/;"	s
+description	autokey/data/Sample Scripts/List Menu.json	/^    "description": "List Menu",$/;"	s
+description	autokey/data/Sample Scripts/Phrase from selection.json	/^    "description": "Phrase from selection",$/;"	s
+description	autokey/data/Sample Scripts/Selection Test.json	/^    "description": "Selection Test",$/;"	s
+description	autokey/data/Todoist/StartToggl.json	/^    "description": "StartToggl",$/;"	s
+disabledModifiers	autokey/autokey.json	/^        "disabledModifiers": [],$/;"	a	object:settings
+displaycmd	config.def.h	/^static const char *displaycmd[] = { "instantdisper", NULL};$/;"	v	typeref:typename:const char * []
+dkeys	config.def.h	/^static Key dkeys[] = {$/;"	v	typeref:typename:Key[]
+downbright	config.def.h	/^static const char *downbright[] = {"\/usr\/share\/instantassist\/utils\/b.sh", "-", NULL};$/;"	v	typeref:typename:const char * []
+downvol	config.def.h	/^static const char *downvol[] = {"\/usr\/share\/instantassist\/utils\/p.sh", "-", NULL};$/;"	v	typeref:typename:const char * []
+editorcmd	config.def.h	/^static const char  *editorcmd[] = { ".config\/instantos\/default\/editor", NULL };$/;"	v	typeref:typename:const char * []
+enableQT4Workaround	autokey/autokey.json	/^        "enableQT4Workaround": false,$/;"	b	object:settings
+enabled	autokey/autokey.json	/^        "enabled": false,$/;"	b	object:configHotkey
+enabled	autokey/autokey.json	/^        "enabled": false,$/;"	b	object:toggleServiceHotkey
+fader	.config/sway/scripts/swayfader.py	/^    def fader(self):$/;"	m	class:Fader
+fclipscrotcmd	config.def.h	/^static const char  *fclipscrotcmd[] = { "\/usr\/share\/instantassist\/assists\/s\/f.sh", NULL };$/;"	v	typeref:typename:const char * []
+filter	autokey/data/Chrome/Down.json	/^    "filter": {$/;"	o
+filter	autokey/data/Chrome/Up.json	/^    "filter": {$/;"	o
+filter	autokey/data/Chrome/folder.json	/^    "filter": {$/;"	o
+filter	autokey/data/My Phrases/Addresses/Home Address.json	/^    "filter": {$/;"	o
+filter	autokey/data/My Phrases/Addresses/folder.json	/^    "filter": {$/;"	o
+filter	autokey/data/My Phrases/First phrase.json	/^    "filter": {$/;"	o
+filter	autokey/data/My Phrases/Second phrase.json	/^    "filter": {$/;"	o
+filter	autokey/data/My Phrases/Third phrase.json	/^    "filter": {$/;"	o
+filter	autokey/data/My Phrases/folder.json	/^    "filter": {$/;"	o
+filter	autokey/data/Obsidian/escape to normal mode.json	/^    "filter": {$/;"	o
+filter	autokey/data/Obsidian/folder.json	/^    "filter": {$/;"	o
+filter	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "filter": {$/;"	o
+filter	autokey/data/Sample Scripts/Display window info.json	/^    "filter": {$/;"	o
+filter	autokey/data/Sample Scripts/Insert Date.json	/^    "filter": {$/;"	o
+filter	autokey/data/Sample Scripts/List Menu.json	/^    "filter": {$/;"	o
+filter	autokey/data/Sample Scripts/Phrase from selection.json	/^    "filter": {$/;"	o
+filter	autokey/data/Sample Scripts/Selection Test.json	/^    "filter": {$/;"	o
+filter	autokey/data/Sample Scripts/folder.json	/^    "filter": {$/;"	o
+filter	autokey/data/Todoist/StartToggl.json	/^    "filter": {$/;"	o
+filter	autokey/data/Todoist/folder.json	/^    "filter": {$/;"	o
+firefoxcmd	config.def.h	/^static const char  *firefoxcmd[] = { "bin\/rora_browser", NULL };$/;"	v	typeref:typename:const char * []
+folder	autokey/data/Sample Scripts/Abbreviation from selection.py	/^    folder = engine.get_folder("My Phrases")$/;"	v
+folder	autokey/data/Sample Scripts/Phrase from selection.py	/^folder = engine.get_folder("My Phrases")$/;"	v
+folders	autokey/autokey.json	/^    "folders": [],$/;"	a
+fonts	config.def.h	/^static const char *fonts[] = {"Inter-Regular:size=12", "Fira Code Nerd Font:size=12", "MigMix 1P/;"	v	typeref:typename:const char * []
+fscrotcmd	config.def.h	/^static const char  *fscrotcmd[] = { "\/usr\/share\/instantassist\/assists\/s\/m.sh", NULL };$/;"	v	typeref:typename:const char * []
+gtkExpandedRows	autokey/autokey.json	/^        "gtkExpandedRows": [$/;"	a	object:settings
+gtkTheme	autokey/autokey.json	/^        "gtkTheme": "classic",$/;"	s	object:settings
+hPanePosition	autokey/autokey.json	/^        "hPanePosition": 287,$/;"	n	object:settings
+helpcmd	config.def.h	/^static const char *helpcmd[] = {"instanthotkeys", "gui", NULL};$/;"	v	typeref:typename:const char * []
+hotKey	autokey/autokey.json	/^        "hotKey": "k"$/;"	s	object:configHotkey
+hotKey	autokey/autokey.json	/^        "hotKey": "k"$/;"	s	object:toggleServiceHotkey
+hotKey	autokey/data/Chrome/Down.json	/^        "hotKey": "n"$/;"	s	object:hotkey
+hotKey	autokey/data/Chrome/Up.json	/^        "hotKey": "p"$/;"	s	object:hotkey
+hotKey	autokey/data/Chrome/folder.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/My Phrases/Addresses/Home Address.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/My Phrases/Addresses/folder.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/My Phrases/First phrase.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/My Phrases/Second phrase.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/My Phrases/Third phrase.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/My Phrases/folder.json	/^        "hotKey": "<f7>"$/;"	s	object:hotkey
+hotKey	autokey/data/Obsidian/escape to normal mode.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Obsidian/folder.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Sample Scripts/Display window info.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Sample Scripts/Insert Date.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Sample Scripts/List Menu.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Sample Scripts/Phrase from selection.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Sample Scripts/Selection Test.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Sample Scripts/folder.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotKey	autokey/data/Todoist/StartToggl.json	/^        "hotKey": "c"$/;"	s	object:hotkey
+hotKey	autokey/data/Todoist/folder.json	/^        "hotKey": null$/;"	z	object:hotkey
+hotkey	autokey/data/Chrome/Down.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Chrome/Up.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Chrome/folder.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/My Phrases/Addresses/Home Address.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/My Phrases/Addresses/folder.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/My Phrases/First phrase.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/My Phrases/Second phrase.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/My Phrases/Third phrase.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/My Phrases/folder.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Obsidian/escape to normal mode.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Obsidian/folder.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Sample Scripts/Display window info.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Sample Scripts/Insert Date.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Sample Scripts/List Menu.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Sample Scripts/Phrase from selection.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Sample Scripts/Selection Test.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Sample Scripts/folder.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Todoist/StartToggl.json	/^    "hotkey": {$/;"	o
+hotkey	autokey/data/Todoist/folder.json	/^    "hotkey": {$/;"	o
+ignoreCase	autokey/data/Chrome/Down.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Chrome/Up.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Chrome/folder.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/My Phrases/Addresses/Home Address.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/My Phrases/Addresses/folder.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/My Phrases/First phrase.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/My Phrases/Second phrase.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/My Phrases/Third phrase.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/My Phrases/folder.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Obsidian/escape to normal mode.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Obsidian/folder.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Sample Scripts/Display window info.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Sample Scripts/Insert Date.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Sample Scripts/List Menu.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Sample Scripts/Phrase from selection.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Sample Scripts/Selection Test.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Sample Scripts/folder.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Todoist/StartToggl.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+ignoreCase	autokey/data/Todoist/folder.json	/^        "ignoreCase": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Chrome/Down.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Chrome/Up.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Chrome/folder.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/My Phrases/Addresses/Home Address.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/My Phrases/Addresses/folder.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/My Phrases/First phrase.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/My Phrases/Second phrase.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/My Phrases/Third phrase.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/My Phrases/folder.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Obsidian/escape to normal mode.json	/^        "immediate": true,$/;"	b	object:abbreviation
+immediate	autokey/data/Obsidian/folder.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Sample Scripts/Display window info.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Sample Scripts/Insert Date.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Sample Scripts/List Menu.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Sample Scripts/Phrase from selection.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Sample Scripts/Selection Test.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Sample Scripts/folder.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Todoist/StartToggl.json	/^        "immediate": false,$/;"	b	object:abbreviation
+immediate	autokey/data/Todoist/folder.json	/^        "immediate": false,$/;"	b	object:abbreviation
+instantassistcmd	config.def.h	/^static const char *instantassistcmd[] = {"instantassist", NULL};$/;"	v	typeref:typename:const char * []
+instantmenucmd	config.def.h	/^static const char *instantmenucmd[] = {"instantmenu_run", NULL};$/;"	v	typeref:typename:const char * []
+instantmenumon	config.def.h	/^static char instantmenumon[2] = "0"; \/* component of instantmenucmd, manipulated in spawn() *\/$/;"	v	typeref:typename:char[2]
+instantmenustcmd	config.def.h	/^static const char *instantmenustcmd[] = {"instantmenu_run_st", NULL};$/;"	v	typeref:typename:const char * []
+instantpacmancmd	config.def.h	/^static const char *instantpacmancmd[] = {"instantpacman", NULL};$/;"	v	typeref:typename:const char * []
+instantrepeatcmd	config.def.h	/^static const char *instantrepeatcmd[] = {"instantrepeat", NULL};$/;"	v	typeref:typename:const char * []
+instantsettings	config.def.h	/^static const char *instantsettings[] = { "instantsettings", NULL};$/;"	v	typeref:typename:const char * []
+instantsharecmd	config.def.h	/^static const char *instantsharecmd[] = {"instantshare", "snap", NULL};$/;"	v	typeref:typename:const char * []
+instantshutdowncmd	config.def.h	/^static const char *instantshutdowncmd[] = {"instantshutdown", NULL};$/;"	v	typeref:typename:const char * []
+instantskippycmd	config.def.h	/^static const char *instantskippycmd[] = {"instantskippy", NULL};$/;"	v	typeref:typename:const char * []
+instantswitchcmd	config.def.h	/^static const char *instantswitchcmd[] = {"rofi", "-show", "window", "-kb-row-down", "Alt+Tab,Dow/;"	v	typeref:typename:const char * []
+interfaceType	autokey/autokey.json	/^        "interfaceType": "XRecord",$/;"	s	object:settings
+isFirstRun	autokey/autokey.json	/^        "isFirstRun": true,$/;"	b	object:settings
+isRecursive	autokey/data/Chrome/Down.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Chrome/Up.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Chrome/folder.json	/^        "isRecursive": true$/;"	b	object:filter
+isRecursive	autokey/data/My Phrases/Addresses/Home Address.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/My Phrases/Addresses/folder.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/My Phrases/First phrase.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/My Phrases/Second phrase.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/My Phrases/Third phrase.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/My Phrases/folder.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Obsidian/escape to normal mode.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Obsidian/folder.json	/^        "isRecursive": true$/;"	b	object:filter
+isRecursive	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Sample Scripts/Display window info.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Sample Scripts/Insert Date.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Sample Scripts/List Menu.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Sample Scripts/Phrase from selection.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Sample Scripts/Selection Test.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Sample Scripts/folder.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Todoist/StartToggl.json	/^        "isRecursive": false$/;"	b	object:filter
+isRecursive	autokey/data/Todoist/folder.json	/^        "isRecursive": true$/;"	b	object:filter
+is_vim	.tmux.conf	/^is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\\\S+\\\\\/)?g?(view|n?/;"	k
+iswitchcmd	config.def.h	/^static const char *iswitchcmd[] = {"iswitch", NULL};$/;"	v	typeref:typename:const char * []
+keylayoutswitchcmd	config.def.h	/^static const char *keylayoutswitchcmd[] = {"instantkeyswitch", NULL};$/;"	v	typeref:typename:const char * []
+keys	config.def.h	/^static Key keys[] = {$/;"	v	typeref:typename:Key[]
+langswitchcmd	config.def.h	/^static const char *langswitchcmd[] = {"ilayout", NULL};$/;"	v	typeref:typename:const char * []
+layouts	config.def.h	/^static const Layout layouts[] = {$/;"	v	typeref:typename:const Layout[]
+matchCase	autokey/data/My Phrases/Addresses/Home Address.json	/^    "matchCase": false,$/;"	b
+matchCase	autokey/data/My Phrases/First phrase.json	/^    "matchCase": false,$/;"	b
+matchCase	autokey/data/My Phrases/Second phrase.json	/^    "matchCase": false,$/;"	b
+matchCase	autokey/data/My Phrases/Third phrase.json	/^    "matchCase": false,$/;"	b
+menuTakesFocus	autokey/autokey.json	/^        "menuTakesFocus": false,$/;"	b	object:settings
+mfact	config.def.h	/^static const float mfact = 0.55;  \/* factor of master area size [0.05..0.95] *\/$/;"	v	typeref:typename:const float
+modes	autokey/data/Chrome/Down.json	/^    "modes": [$/;"	a
+modes	autokey/data/Chrome/Up.json	/^    "modes": [$/;"	a
+modes	autokey/data/Chrome/folder.json	/^    "modes": [],$/;"	a
+modes	autokey/data/My Phrases/Addresses/Home Address.json	/^    "modes": [$/;"	a
+modes	autokey/data/My Phrases/Addresses/folder.json	/^    "modes": [],$/;"	a
+modes	autokey/data/My Phrases/First phrase.json	/^    "modes": [$/;"	a
+modes	autokey/data/My Phrases/Second phrase.json	/^    "modes": [],$/;"	a
+modes	autokey/data/My Phrases/Third phrase.json	/^    "modes": [],$/;"	a
+modes	autokey/data/My Phrases/folder.json	/^    "modes": [$/;"	a
+modes	autokey/data/Obsidian/escape to normal mode.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Obsidian/folder.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Sample Scripts/Display window info.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Sample Scripts/Insert Date.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Sample Scripts/List Menu.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Sample Scripts/Phrase from selection.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Sample Scripts/Selection Test.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Sample Scripts/folder.json	/^    "modes": [],$/;"	a
+modes	autokey/data/Todoist/StartToggl.json	/^    "modes": [$/;"	a
+modes	autokey/data/Todoist/folder.json	/^    "modes": [],$/;"	a
+modifiers	autokey/autokey.json	/^        "modifiers": [$/;"	a	object:configHotkey
+modifiers	autokey/autokey.json	/^        "modifiers": [$/;"	a	object:toggleServiceHotkey
+modifiers	autokey/data/Chrome/Down.json	/^        "modifiers": [$/;"	a	object:hotkey
+modifiers	autokey/data/Chrome/Up.json	/^        "modifiers": [$/;"	a	object:hotkey
+modifiers	autokey/data/Chrome/folder.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/My Phrases/Addresses/Home Address.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/My Phrases/Addresses/folder.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/My Phrases/First phrase.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/My Phrases/Second phrase.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/My Phrases/Third phrase.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/My Phrases/folder.json	/^        "modifiers": [$/;"	a	object:hotkey
+modifiers	autokey/data/Obsidian/escape to normal mode.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Obsidian/folder.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Sample Scripts/Display window info.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Sample Scripts/Insert Date.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Sample Scripts/List Menu.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Sample Scripts/Phrase from selection.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Sample Scripts/Selection Test.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Sample Scripts/folder.json	/^        "modifiers": [],$/;"	a	object:hotkey
+modifiers	autokey/data/Todoist/StartToggl.json	/^        "modifiers": [$/;"	a	object:hotkey
+modifiers	autokey/data/Todoist/folder.json	/^        "modifiers": null,$/;"	z	object:hotkey
+mutevol	config.def.h	/^static const char *mutevol[] = {"\/usr\/share\/instantassist\/utils\/p.sh", "m", NULL};$/;"	v	typeref:typename:const char * []
+nautiluscmd	config.def.h	/^static const char *nautiluscmd[] = {".config\/instantos\/default\/filemanager", NULL};$/;"	v	typeref:typename:const char * []
+nmaster	config.def.h	/^static const int nmaster = 1;	 \/* number of clients in master area *\/$/;"	v	typeref:typename:const int
+notificationIcon	autokey/autokey.json	/^        "notificationIcon": "autokey-status",$/;"	s	object:settings
+notifycmd	config.def.h	/^static const char *notifycmd[] = {"instantnotify", NULL};$/;"	v	typeref:typename:const char * []
+obsidiancmd	config.def.h	/^static const char  *obsidiancmd[] = { "bin\/rora_obsidian", NULL };$/;"	v	typeref:typename:const char * []
+omitTrigger	autokey/data/Chrome/Down.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Chrome/Up.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/My Phrases/Addresses/Home Address.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/My Phrases/First phrase.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/My Phrases/Second phrase.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/My Phrases/Third phrase.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Obsidian/escape to normal mode.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Sample Scripts/Display window info.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Sample Scripts/Insert Date.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Sample Scripts/List Menu.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Sample Scripts/Phrase from selection.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Sample Scripts/Selection Test.json	/^    "omitTrigger": false,$/;"	b
+omitTrigger	autokey/data/Todoist/StartToggl.json	/^    "omitTrigger": false,$/;"	b
+on_window_floating	.config/sway/scripts/swayfader.py	/^    def on_window_floating(self, ipc, e):$/;"	m	class:Fader
+on_window_focus	.config/sway/scripts/swayfader.py	/^    def on_window_focus(self, ipc, e):$/;"	m	class:Fader
+on_window_new	.config/sway/scripts/swayfader.py	/^    def on_window_new(self, ipc, e):$/;"	m	class:Fader
+onboardcmd	config.def.h	/^static const char *onboardcmd[] = {"onboard", NULL};$/;"	v	typeref:typename:const char * []
+onekeylock	config.def.h	/^static const char *onekeylock[] = {"ilock", "-o", NULL};$/;"	v	typeref:typename:const char * []
+oslockcmd	config.def.h	/^static const char *oslockcmd[] = {"instantlock", "-o", NULL};$/;"	v	typeref:typename:const char * []
+output	autokey/data/Sample Scripts/Insert Date.py	/^output = system.exec_command("date")$/;"	v
+panther	config.def.h	/^static const char *panther[] = { ".config\/instantos\/default\/appmenu", NULL};$/;"	v	typeref:typename:const char * []
+pathLastOpen	autokey/autokey.json	/^        "pathLastOpen": "2:0"$/;"	s	object:settings
+pavucontrol	config.def.h	/^static const char *pavucontrol[] = { "pavucontrol", NULL};$/;"	v	typeref:typename:const char * []
+playernext	config.def.h	/^static const char *playernext[] = { "playerctl", "next", NULL};$/;"	v	typeref:typename:const char * []
+playerpause	config.def.h	/^static const char *playerpause[] = { "playerctl", "play-pause", NULL};$/;"	v	typeref:typename:const char * []
+playerprevious	config.def.h	/^static const char *playerprevious[] = { "playerctl", "previous", NULL};$/;"	v	typeref:typename:const char * []
+prompt	autokey/data/Chrome/Down.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Chrome/Up.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/My Phrases/Addresses/Home Address.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/My Phrases/First phrase.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/My Phrases/Second phrase.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/My Phrases/Third phrase.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Obsidian/escape to normal mode.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Sample Scripts/Display window info.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Sample Scripts/Insert Date.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Sample Scripts/List Menu.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Sample Scripts/Phrase from selection.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Sample Scripts/Selection Test.json	/^    "prompt": false,$/;"	b
+prompt	autokey/data/Todoist/StartToggl.json	/^    "prompt": false,$/;"	b
+promptToSave	autokey/autokey.json	/^        "promptToSave": false,$/;"	b	object:settings
+quickmenucmd	config.def.h	/^static const char *quickmenucmd[] = {"quickmenu", NULL};$/;"	v	typeref:typename:const char * []
+rangercmd	config.def.h	/^static const char *rangercmd[] = { ".config\/instantos\/default\/termfilemanager", NULL };$/;"	v	typeref:typename:const char * []
+regex	autokey/data/Chrome/Down.json	/^        "regex": "vivaldi-stable.Vivaldi-stable",$/;"	s	object:filter
+regex	autokey/data/Chrome/Up.json	/^        "regex": "vivaldi-stable.Vivaldi-stable",$/;"	s	object:filter
+regex	autokey/data/Chrome/folder.json	/^        "regex": "vivaldi-stable.*",$/;"	s	object:filter
+regex	autokey/data/My Phrases/Addresses/Home Address.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/My Phrases/Addresses/folder.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/My Phrases/First phrase.json	/^        "regex": ".* - gedit",$/;"	s	object:filter
+regex	autokey/data/My Phrases/Second phrase.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/My Phrases/Third phrase.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/My Phrases/folder.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Obsidian/escape to normal mode.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Obsidian/folder.json	/^        "regex": "obsidian.*",$/;"	s	object:filter
+regex	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Sample Scripts/Display window info.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Sample Scripts/Insert Date.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Sample Scripts/List Menu.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Sample Scripts/Phrase from selection.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Sample Scripts/Selection Test.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Sample Scripts/folder.json	/^        "regex": null,$/;"	z	object:filter
+regex	autokey/data/Todoist/StartToggl.json	/^        "regex": "todoist.*",$/;"	s	object:filter
+regex	autokey/data/Todoist/folder.json	/^        "regex": "todoist.*",$/;"	s	object:filter
+resizehints	config.def.h	/^static const int resizehints = 1; \/* 1 means respect size hints in tiled resizals *\/$/;"	v	typeref:typename:const int
+resources	config.def.h	/^ResourcePref resources[] = {$/;"	v	typeref:typename:ResourcePref[]
+retCode	autokey/data/Sample Scripts/Abbreviation from selection.py	/^retCode, abbr = dialog.input_dialog("New Abbreviation", "Choose an abbreviation for the new phra/;"	v
+retCode	autokey/data/Sample Scripts/List Menu.py	/^retCode, choice = dialog.list_menu(choices)$/;"	v
+rora_termcmd	config.def.h	/^static const char *rora_termcmd[] = {"bin\/rora_terminal", NULL};$/;"	v	typeref:typename:const char * []
+rotate_leftcmd	config.def.h	/^static const char *rotate_leftcmd[] = { "\/home\/annenpolka\/bin\/rotate-screen", "left", NULL};$/;"	v	typeref:typename:const char * []
+rotate_normalcmd	config.def.h	/^static const char *rotate_normalcmd[] = { "\/home\/annenpolka\/bin\/rotate-screen", "normal", NU/;"	v	typeref:typename:const char * []
+rotate_rightcmd	config.def.h	/^static const char *rotate_rightcmd[] = { "\/home\/annenpolka\/bin\/rotate-screen", "right", NULL/;"	v	typeref:typename:const char * []
+rules	config.def.h	/^static const Rule rules[] = {$/;"	v	typeref:typename:const Rule[]
+schemeclosetypes	config.def.h	/^SchemePref schemeclosetypes[] = {$/;"	v	typeref:typename:SchemePref[]
+schemecolortypes	config.def.h	/^SchemePref schemecolortypes[] = {$/;"	v	typeref:typename:SchemePref[]
+schemehovertypes	config.def.h	/^SchemePref schemehovertypes[] = {$/;"	v	typeref:typename:SchemePref[]
+schemetagtypes	config.def.h	/^SchemePref schemetagtypes[] = {$/;"	v	typeref:typename:SchemePref[]
+schemewindowtypes	config.def.h	/^SchemePref schemewindowtypes[] = {$/;"	v	typeref:typename:SchemePref[]
+scratchpadname	config.def.h	/^static const char scratchpadname[] = "instantscratchpad";$/;"	v	typeref:typename:const char[]
+scriptGlobals	autokey/autokey.json	/^        "scriptGlobals": {},$/;"	o	object:settings
+scrotcmd	config.def.h	/^static const char  *scrotcmd[] = { "\/usr\/share\/instantassist\/assists\/s\/s.sh", NULL };$/;"	v	typeref:typename:const char * []
+searchcmd	config.def.h	/^static const char *searchcmd[] = {"instantsearch", NULL};$/;"	v	typeref:typename:const char * []
+sendMode	autokey/data/My Phrases/Addresses/Home Address.json	/^    "sendMode": "kb"$/;"	s
+sendMode	autokey/data/My Phrases/First phrase.json	/^    "sendMode": "kb"$/;"	s
+sendMode	autokey/data/My Phrases/Second phrase.json	/^    "sendMode": "kb"$/;"	s
+sendMode	autokey/data/My Phrases/Third phrase.json	/^    "sendMode": "kb"$/;"	s
+serviceRunning	autokey/autokey.json	/^        "serviceRunning": true,$/;"	b	object:settings
+settings	autokey/autokey.json	/^    "settings": {$/;"	o
+showInTrayMenu	autokey/data/Chrome/Down.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Chrome/Up.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Chrome/folder.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/My Phrases/Addresses/Home Address.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/My Phrases/Addresses/folder.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/My Phrases/First phrase.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/My Phrases/Second phrase.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/My Phrases/Third phrase.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/My Phrases/folder.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Obsidian/escape to normal mode.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Obsidian/folder.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Sample Scripts/Display window info.json	/^    "showInTrayMenu": true,$/;"	b
+showInTrayMenu	autokey/data/Sample Scripts/Insert Date.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Sample Scripts/List Menu.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Sample Scripts/Phrase from selection.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Sample Scripts/Selection Test.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Sample Scripts/folder.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Todoist/StartToggl.json	/^    "showInTrayMenu": false,$/;"	b
+showInTrayMenu	autokey/data/Todoist/folder.json	/^    "showInTrayMenu": false,$/;"	b
+showToolbar	autokey/autokey.json	/^        "showToolbar": true,$/;"	b	object:settings
+showTrayIcon	autokey/autokey.json	/^        "showTrayIcon": true,$/;"	b	object:settings
+showbar	config.def.h	/^static const int showbar = 1;				  \/* 0 means no bar *\/ static const int topbar = 1;				  \/* /;"	v	typeref:typename:const int
+showsystray	config.def.h	/^static const int showsystray = 1;			  \/* 0 means no systray *\/$/;"	v	typeref:typename:const int
+slockcmd	config.def.h	/^static const char *slockcmd[] = {".config\/instantos\/default\/lockscreen", NULL};$/;"	v	typeref:typename:const char * []
+smartcmd	config.def.h	/^static const char *smartcmd[] = {"instantmenu_smartrun", NULL};$/;"	v	typeref:typename:const char * []
+snap	config.def.h	/^\/* appearance *\/ static const unsigned int borderpx = 3;		  \/* border pixel of windows *\/ st/;"	v	typeref:typename:const unsigned int
+sortByUsageCount	autokey/autokey.json	/^        "sortByUsageCount": true,$/;"	b	object:settings
+spoticli	config.def.h	/^static const char *spoticli[] = { "spoticli", "m", NULL};$/;"	v	typeref:typename:const char * []
+start_fader	.config/sway/scripts/swayfader.py	/^    def start_fader(self):$/;"	m	class:Fader
+startmenucmd	config.def.h	/^static const char  *startmenucmd[] = { "instantstartmenu", NULL };$/;"	v	typeref:typename:const char * []
+startmenusize	config.def.h	/^static const unsigned int startmenusize = 30;		  \/* snap pixel *\/$/;"	v	typeref:typename:const unsigned int
+statusbarcolors	config.def.h	/^static const char *statusbarcolors[] = {$/;"	v	typeref:typename:const char * []
+store	autokey/data/Chrome/Down.json	/^    "store": {},$/;"	o
+store	autokey/data/Chrome/Up.json	/^    "store": {},$/;"	o
+store	autokey/data/Obsidian/escape to normal mode.json	/^    "store": {},$/;"	o
+store	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "store": {},$/;"	o
+store	autokey/data/Sample Scripts/Display window info.json	/^    "store": {},$/;"	o
+store	autokey/data/Sample Scripts/Insert Date.json	/^    "store": {},$/;"	o
+store	autokey/data/Sample Scripts/List Menu.json	/^    "store": {},$/;"	o
+store	autokey/data/Sample Scripts/Phrase from selection.json	/^    "store": {},$/;"	o
+store	autokey/data/Sample Scripts/Selection Test.json	/^    "store": {},$/;"	o
+store	autokey/data/Todoist/StartToggl.json	/^    "store": {},$/;"	o
+systemmonitorcmd	config.def.h	/^static const char *systemmonitorcmd[] = {".config\/instantos\/default\/systemmonitor", NULL};$/;"	v	typeref:typename:const char * []
+systraypinning	config.def.h	/^static const unsigned int systraypinning = 0; \/* 0: sloppy systray follows selected monitor, >0/;"	v	typeref:typename:const unsigned int
+systraypinningfailfirst	config.def.h	/^static const int systraypinningfailfirst = 1; \/* 1: if pinning fails, display systray on the fi/;"	v	typeref:typename:const int
+systrayspacing	config.def.h	/^static const unsigned int systrayspacing = 0; \/* systray spacing *\/$/;"	v	typeref:typename:const unsigned int
+t	.tmux.conf	/^bind-key -n WheelDownPane select-pane -t= \\; send-keys -M$/;"	k
+t	.tmux.conf	/^bind-key -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_/;"	k
+tagcolors	config.def.h	/^static const char *tagcolors[2][5][3] = {$/;"	v	typeref:typename:const char * [2][5][3]
+tags	config.def.h	/^static char tags[][MAX_TAGLEN] = { "", "", "", "", "", "", "7", "8", "9", "10"/;"	v	typeref:typename:char[][]
+tags_default	config.def.h	/^static const char *tags_default[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "1/;"	v	typeref:typename:const char * []
+tagsalt	config.def.h	/^static const char *tagsalt[] = { "", "{}", "$", "", "", "", "", "", "" };$/;"	v	typeref:typename:const char * []
+termcmd	config.def.h	/^static const char *termcmd[] = {".config\/instantos\/default\/terminal", NULL};$/;"	v	typeref:typename:const char * []
+termscratchcmd	config.def.h	/^static const char *termscratchcmd[] = {".config\/instantos\/default\/terminal", "-c", scratchpad/;"	v	typeref:typename:const char * []
+text	autokey/data/Sample Scripts/Selection Test.py	/^text = clipboard.get_selection()$/;"	v
+title	autokey/data/Chrome/folder.json	/^    "title": "Chrome",$/;"	s
+title	autokey/data/My Phrases/Addresses/folder.json	/^    "title": "Addresses",$/;"	s
+title	autokey/data/My Phrases/folder.json	/^    "title": "My Phrases",$/;"	s
+title	autokey/data/Obsidian/folder.json	/^    "title": "Obsidian",$/;"	s
+title	autokey/data/Sample Scripts/Abbreviation from selection.py	/^        title = contents[0:17] + "..."$/;"	v
+title	autokey/data/Sample Scripts/Phrase from selection.py	/^    title = contents[0:17] + "..."$/;"	v
+title	autokey/data/Sample Scripts/folder.json	/^    "title": "Sample Scripts",$/;"	s
+title	autokey/data/Todoist/folder.json	/^    "title": "Todoist",$/;"	s
+todoistcmd	config.def.h	/^static const char  *todoistcmd[] = { "bin\/rora_todoist", NULL };$/;"	v	typeref:typename:const char * []
+toggleServiceHotkey	autokey/autokey.json	/^    "toggleServiceHotkey": {$/;"	o
+topbar	config.def.h	/^static const int showbar = 1;				  \/* 0 means no bar *\/ static const int topbar = 1;				  \/* /;"	v	typeref:typename:const int
+triggerInside	autokey/data/Chrome/Down.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Chrome/Up.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Chrome/folder.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/My Phrases/Addresses/Home Address.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/My Phrases/Addresses/folder.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/My Phrases/First phrase.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/My Phrases/Second phrase.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/My Phrases/Third phrase.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/My Phrases/folder.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Obsidian/escape to normal mode.json	/^        "triggerInside": true,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Obsidian/folder.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Sample Scripts/Display window info.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Sample Scripts/Insert Date.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Sample Scripts/List Menu.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Sample Scripts/Phrase from selection.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Sample Scripts/Selection Test.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Sample Scripts/folder.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Todoist/StartToggl.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerInside	autokey/data/Todoist/folder.json	/^        "triggerInside": false,$/;"	b	object:abbreviation
+triggerItemByInitial	autokey/autokey.json	/^        "triggerItemByInitial": false,$/;"	b	object:settings
+type	autokey/data/Chrome/Down.json	/^    "type": "script",$/;"	s
+type	autokey/data/Chrome/Up.json	/^    "type": "script",$/;"	s
+type	autokey/data/Chrome/folder.json	/^    "type": "folder",$/;"	s
+type	autokey/data/My Phrases/Addresses/Home Address.json	/^    "type": "phrase",$/;"	s
+type	autokey/data/My Phrases/Addresses/folder.json	/^    "type": "folder",$/;"	s
+type	autokey/data/My Phrases/First phrase.json	/^    "type": "phrase",$/;"	s
+type	autokey/data/My Phrases/Second phrase.json	/^    "type": "phrase",$/;"	s
+type	autokey/data/My Phrases/Third phrase.json	/^    "type": "phrase",$/;"	s
+type	autokey/data/My Phrases/folder.json	/^    "type": "folder",$/;"	s
+type	autokey/data/Obsidian/escape to normal mode.json	/^    "type": "script",$/;"	s
+type	autokey/data/Obsidian/folder.json	/^    "type": "folder",$/;"	s
+type	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "type": "script",$/;"	s
+type	autokey/data/Sample Scripts/Display window info.json	/^    "type": "script",$/;"	s
+type	autokey/data/Sample Scripts/Insert Date.json	/^    "type": "script",$/;"	s
+type	autokey/data/Sample Scripts/List Menu.json	/^    "type": "script",$/;"	s
+type	autokey/data/Sample Scripts/Phrase from selection.json	/^    "type": "script",$/;"	s
+type	autokey/data/Sample Scripts/Selection Test.json	/^    "type": "script",$/;"	s
+type	autokey/data/Sample Scripts/folder.json	/^    "type": "folder",$/;"	s
+type	autokey/data/Todoist/StartToggl.json	/^    "type": "script",$/;"	s
+type	autokey/data/Todoist/folder.json	/^    "type": "folder",$/;"	s
+undoUsingBackspace	autokey/autokey.json	/^        "undoUsingBackspace": true,$/;"	b	object:settings
+upbright	config.def.h	/^static const char *upbright[] = {"\/usr\/share\/instantassist\/utils\/b.sh", "+", NULL};$/;"	v	typeref:typename:const char * []
+upvol	config.def.h	/^static const char *upvol[] = {"\/usr\/share\/instantassist\/utils\/p.sh", "+", NULL};$/;"	v	typeref:typename:const char * []
+usageCount	autokey/data/Chrome/Down.json	/^    "usageCount": 10,$/;"	n
+usageCount	autokey/data/Chrome/Up.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Chrome/folder.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/My Phrases/Addresses/Home Address.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/My Phrases/Addresses/folder.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/My Phrases/First phrase.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/My Phrases/Second phrase.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/My Phrases/Third phrase.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/My Phrases/folder.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Obsidian/escape to normal mode.json	/^    "usageCount": 97,$/;"	n
+usageCount	autokey/data/Obsidian/folder.json	/^    "usageCount": 16,$/;"	n
+usageCount	autokey/data/Sample Scripts/Abbreviation from selection.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Sample Scripts/Display window info.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Sample Scripts/Insert Date.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Sample Scripts/List Menu.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Sample Scripts/Phrase from selection.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Sample Scripts/Selection Test.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Sample Scripts/folder.json	/^    "usageCount": 0,$/;"	n
+usageCount	autokey/data/Todoist/StartToggl.json	/^    "usageCount": 1,$/;"	n
+usageCount	autokey/data/Todoist/folder.json	/^    "usageCount": 0,$/;"	n
+userCodeDir	autokey/autokey.json	/^    "userCodeDir": null,$/;"	z
+version	.config/fontconfig/conf.d/01-font.conf	/^<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE fontconfig SYSTEM "fonts.dtd">$/;"	k
+version	autokey/autokey.json	/^    "version": "0.96.0-beta.10",$/;"	s
+winClass	autokey/data/Sample Scripts/Display window info.py	/^winClass = window.get_active_class()$/;"	v
+winTitle	autokey/data/Sample Scripts/Display window info.py	/^winTitle = window.get_active_title()$/;"	v
+windowDefaultSize	autokey/autokey.json	/^        "windowDefaultSize": [$/;"	a	object:settings
+windowcolors	config.def.h	/^static const char *windowcolors[2][7][3] = {$/;"	v	typeref:typename:const char * [2][7][3]
+wordChars	autokey/data/Chrome/Down.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Chrome/Up.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Chrome/folder.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/My Phrases/Addresses/Home Address.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/My Phrases/Addresses/folder.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/My Phrases/First phrase.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/My Phrases/Second phrase.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/My Phrases/Third phrase.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/My Phrases/folder.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Obsidian/escape to normal mode.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Obsidian/folder.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Sample Scripts/Abbreviation from selection.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Sample Scripts/Display window info.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Sample Scripts/Insert Date.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Sample Scripts/List Menu.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Sample Scripts/Phrase from selection.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Sample Scripts/Selection Test.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Sample Scripts/folder.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Todoist/StartToggl.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+wordChars	autokey/data/Todoist/folder.json	/^        "wordChars": "[\\\\w]"$/;"	s	object:abbreviation
+workAroundApps	autokey/autokey.json	/^        "workAroundApps": ".*VirtualBox.*|krdc.Krdc",$/;"	s	object:settings
+xresourcesfont	config.def.h	/^static char xresourcesfont[30];$/;"	v	typeref:typename:char[30]
