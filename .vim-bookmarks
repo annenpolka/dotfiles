@@ -1,0 +1,3 @@
+let l:bm_file_version = 1
+let l:bm_sessions = {'default': {'/home/annenpolka/Contests/AtCoderCAtCoderProgrammingGuideforbeginnersAPG4b/EX7bool.cpp': [{'sign_idx': 9500, 'line_nr': 7, 'content': '  // 変数a,b,cにtrueまたはfalseを代入してAtCoderと出力されるようにする。'},],'/home/annenpolka/.config/nvim/lua/plugins-config/init.lua': [{'sign_idx': 9512, 'line_nr': 509, 'content': '		-- -- cmp devicons appearance dependency'},],}}
+let l:bm_current_session = 'default'
