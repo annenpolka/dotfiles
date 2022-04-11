@@ -181,8 +181,8 @@ bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 p
 #
 # Volume
 #
-    bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 2
-    bindsym --locked XF86AudioLowerVolume exec pamixer -ud 2
+    bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 5
+    bindsym --locked XF86AudioLowerVolume exec pamixer -ud 5
     bindsym --locked XF86AudioMute exec pamixer -t
 #
 # Player
