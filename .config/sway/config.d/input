@@ -25,5 +25,3 @@ exec_always {
    'swaymsg input type:keyboard xkb_variant "$(localectl status | grep "X11 Variant" | sed -e "s/^.*X11 Variant://")"'
 }
 
-
-

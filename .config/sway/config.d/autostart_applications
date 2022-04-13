@@ -21,3 +21,7 @@ exec fusuma
 
 # Sway Fader
 # exec python3 ~/.config/sway/scripts/swayfader.py      
+
+# auto-rotate
+exec rot8 
+input 1267:10780:ELAN9038:00_04F3:2A1C map_to_output eDP-1
