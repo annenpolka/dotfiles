@@ -2,8 +2,8 @@
 assign [class="obsidian"] 1
 for_window [class="obsidian"] focus
 
-assign [class="Google-chrome"] 2
-for_window [class="Google-chrome"] focus
+assign [class="Vivaldi"] 2
+for_window [class="Vivaldi"] focus
 
 assign [class="Code"] 3
 for_window [class="Code"] focus
