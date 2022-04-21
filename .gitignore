@@ -4,3 +4,4 @@
 .config/vifm/vifm-help.txt
 .config/vifm/vifminfo.json
 tags
+.config/lazygit/state.yml
