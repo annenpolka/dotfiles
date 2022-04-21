@@ -1,23 +1,17 @@
-# --- envvars
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                          envvars                         │
+#  ╰──────────────────────────────────────────────────────────╯
 ## keybind
 bindkey -e
 ## auto cd
 setopt AUTO_CD
-
-## history
+## history 
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
-export SAVEHIST=100000000
 
 # auto cd
 setopt AUTO_CD
-
-# local exec path
-export PATH="$HOME/bin:$PATH"
-
-# cargo
-export PATH="$HOME/.cargo/bin:$PATH"
 
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
@@ -29,6 +23,13 @@ function vicd() {
     cd "$dst"
 }
 bindkey -s '^E' 'vicd . \n'
+
+# include ac-library
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                        aliases                           │
+#  ╰──────────────────────────────────────────────────────────╯
 
 ## lazygit = lg
 alias lg=lazygit
@@ -47,12 +48,14 @@ if [[ $(command -v exa) ]]; then
   alias lt=et
   alias eta='exa -T -a -I "node_modules|.git|.cache" --color=always --icons | less -r'
   alias lta=eta
-  fi
+fi
 
+  
+## neovim startup time check
+alias nvtime="nvim --startuptime ./startup.log"
 
-# python compatiabilty
-alias python3=python
-alias pip3=pip
+## initialize thefuck
+eval $(thefuck --alias)
 
 # --- unsettled
 
@@ -61,16 +64,9 @@ eval "$(direnv hook zsh)"
 export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 
 
-# --- deprecated
-
-# starship
-# eval "$(starship init zsh)"
-
-## zplug
-# export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
-# source ~/.zplugrc
-
-# --- Initialization
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                      Initialization                      │
+#  ╰──────────────────────────────────────────────────────────╯
 
 ##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/annenpolka/.sdkman"
@@ -79,10 +75,29 @@ export SDKMAN_DIR="/home/annenpolka/.sdkman"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# zinit
-source /usr/share/zinit/zinit.zsh
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
 source ~/.zinitrc
 
-source /home/annenpolka/.config/broot/launcher/bash/br
-
-eval $(thefuck --alias)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
