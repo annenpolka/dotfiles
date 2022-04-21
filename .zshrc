@@ -6,9 +6,12 @@ bindkey -e
 ## auto cd
 setopt AUTO_CD
 ## history 
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=1000000000
-export HISTSIZE=1000000000
+export HISTFILE=$HOME/.zsh_history
+export HISTFILESIZE=1000000
+export HISTSIZE=100000
+export SAVEHIST=100000000
+setopt hist_ignore_dups
+setopt inc_append_history share_history
 
 # auto cd
 setopt AUTO_CD
