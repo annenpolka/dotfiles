@@ -29,6 +29,6 @@ zinit light ajeetdsouza/zoxide
 zinit wait"1" lucid light-mode for b4b4r07/enhancd
 
 ### tmux
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'no'
 zinit snippet PZTM::tmux
 
