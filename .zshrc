@@ -30,6 +30,9 @@ bindkey -s '^E' 'vicd . \n'
 # include ac-library
 export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
 #  ╰──────────────────────────────────────────────────────────╯
