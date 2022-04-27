@@ -194,8 +194,8 @@ bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 p
 #
 # Backlight
 #
-    bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
-    bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +2%
+    bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 2%-
 #
 # App shortcuts
 #
