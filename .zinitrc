@@ -12,6 +12,7 @@ zinit wait lucid for \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 ### directory presets from prezto
 zinit snippet PZTM::directory
