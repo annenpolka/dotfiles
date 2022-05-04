@@ -33,6 +33,9 @@ export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# bob nvim
+export PATH="$HOME/.local/share/neovim/bin:$PATH"
+
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
 #  ╰──────────────────────────────────────────────────────────╯
