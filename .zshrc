@@ -36,6 +36,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # bob nvim
 export PATH="$HOME/.local/share/neovim/bin:$PATH"
 
+# (WSL) open in host Windows 
+if uname -r |grep -q 'Microsoft' ; then
+  export BROWSER=wslview
+fi
+
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
 #  ╰──────────────────────────────────────────────────────────╯
@@ -67,6 +72,29 @@ alias nvtime="nvim --startuptime ./startup.log"
 eval $(thefuck --alias)
 
 # create temporary neovim environment
+function nvim-minimal-env() {
+  cd "$(mktemp -d)"
+  export HOME=$PWD
+  export XDG_CONFIG_HOME=$HOME/.config
+  export XDG_DATA_HOME=$HOME/.local/share
+  export XDG_CACHE_HOME=$HOME/.cache
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  mkdir -p ~/.config/nvim
+  cat << EOF > ~/.config/nvim/init.vim
+syntax enable
+filetype plugin indent on
+
+call plug#begin(stdpath('data') . '/plugged')
+" Plug ''
+call plug#end()
+EOF
+  mkdir -p ~/.config/vifm
+  cp /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
+  pwd
+  ls -la
+}
+
 function nvim-minimal-env-packer() {
   cd "$(mktemp -d)"
   export HOME=$PWD
@@ -95,6 +123,8 @@ end)
 EOF
 # do not write under this line because it was returned
 
+  mkdir -p ~/.config/vifm
+  cp /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
   pwd
   ls -la
 }
