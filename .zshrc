@@ -47,6 +47,8 @@ fi
 
 ## lazygit = lg
 alias lg=lazygit
+## lazydocker = lz
+alias lz=lazydocker
 
 
 ## exaで幸せなlsライフを送る
