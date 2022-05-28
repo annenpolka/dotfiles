@@ -4,7 +4,6 @@
       	"position": "top",
 	// If height property would be not present, it'd be calculated dynamically
      "height": 30,
-     "width" : 10,
  
     	"modules-left": [
         	"custom/launcher",
