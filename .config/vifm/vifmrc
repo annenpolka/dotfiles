@@ -498,12 +498,14 @@ command! FZFfind : set noquickview
                 \| if $FZF_PICK != ''
                 \|     execute 'goto' fnameescape($FZF_PICK)
                 \| endif
-
 " variation that automatically enters directories
-command! FZFlocate : set noquickview
-                  \| let $FZF_PICK = term('locate $HOME | sk --height 10 2>/dev/tty')
-                  \| if $FZF_PICK != ''
-                  \|     execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
-                  \| endif
+" command! FZFlocate : set noquickview
+"                   \| let $FZF_PICK = term('locate $HOME | sk --height 10 2>/dev/tty')
+"                   \| if $FZF_PICK != ''
+"                   \|     execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
+"                   \| endif
 nnoremap <c-g> :FZFlocate<cr>
 nnoremap <c-f> :FZFfind<cr>
+
+" show hidden files
+set dotfiles
