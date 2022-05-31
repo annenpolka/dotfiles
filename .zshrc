@@ -34,7 +34,7 @@ export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # ghcup(Haskell)
-export PATH="$HOME/.ghcup:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 
 # (WSL) open in host Windows 
 if uname -r |grep -q 'Microsoft' ; then
