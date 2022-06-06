@@ -27,6 +27,9 @@ function vicd() {
 }
 bindkey -s '^E' 'vicd . \n'
 
+# default editor 
+export EDITOR=nvim
+
 # include ac-library
 export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
 
@@ -133,6 +136,8 @@ EOF
   pwd
   ls -la
 }
+
+alias nvim-packersync="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
 # --- unsettled
 
