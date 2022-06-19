@@ -16,17 +16,6 @@ setopt inc_append_history share_history
 # auto cd
 setopt AUTO_CD
 
-## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
-function vicd() {
-    local dst="$(command vifm $1 $2 --choose-dir -)"
-    if [ -z "$dst" ]; then
-        echo 'Directory picking cancelled/failed'
-        return 1
-    fi
-    cd "$dst"
-}
-bindkey -s '^E' 'vicd . \n'
-
 # default editor 
 export EDITOR=nvim
 
@@ -56,6 +45,19 @@ alias lg=lazygit
 ## lazydocker = lz
 alias lz=lazydocker
 
+## xplr with cd on exit
+alias xcd='cd "$(xplr --print-pwd-as-result)"'
+
+## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
+function vicd() {
+    local dst="$(command vifm $1 $2 --choose-dir -)"
+    if [ -z "$dst" ]; then
+        echo 'Directory picking cancelled/failed'
+        return 1
+    fi
+    cd "$dst"
+}
+bindkey -s '^E' 'vicd . \n'
 
 ## exaで幸せなlsライフを送る
 if [[ $(command -v exa) ]]; then
