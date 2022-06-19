@@ -31,9 +31,12 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 # local bin
 export PATH="$HOME/.local/bin:$PATH"
 
-# (WSL) open in host Windows 
+# settings on WSL
 if uname -r |grep -q 'Microsoft' ; then
+  # (WSL) open in host Windows 
   export BROWSER=wslview
+  # keyrepeat value
+  xset r rate 200 60
 fi
 
 #  ╭──────────────────────────────────────────────────────────╮
