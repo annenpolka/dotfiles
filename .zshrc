@@ -36,7 +36,7 @@ if uname -r |grep -q 'Microsoft' ; then
   # (WSL) open in host Windows 
   export BROWSER=wslview
   # keyrepeat value
-  xset r rate 200 60
+  xset r rate 150 50
 fi
 
 #  ╭──────────────────────────────────────────────────────────╮
