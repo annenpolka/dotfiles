@@ -58,17 +58,11 @@ alias komorebic="/mnt/c/Users/lance/scoop/shims/komorebic.exe"
 alias python=python3 
 alias pip=pip3
 
-## Windows側でopen
-function open() { /mnt/c/Windows/System32/cmd.exe /c start $(wslpath -w $1) }
-
 ## Go
 export PATH=$PATH:~/go/bin
 
 ## パッケージの探索範囲絡みのパスらしい
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
-
-# brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # nvim-lsp-installer
 export PATH=$PATH:~/.local/share/nvim/lsp_servers
