@@ -95,7 +95,7 @@ call plug#begin(stdpath('data') . '/plugged')
 call plug#end()
 EOF
   mkdir -p ~/.config/vifm
-  cp /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
+  ln -s /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
   pwd
   ls -la
 }
@@ -129,7 +129,7 @@ EOF
 # do not write under this line because it was returned
 
   mkdir -p ~/.config/vifm
-  cp /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
+  ln -s /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
   pwd
   ls -la
 }
@@ -177,7 +177,7 @@ function emacs-minimal-env() {
 EOF
   # vifm setup
   mkdir -p ~/.config/vifm
-  cp /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
+  ln -s /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
 
   pwd
   ls -la
