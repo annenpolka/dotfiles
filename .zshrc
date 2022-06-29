@@ -136,6 +136,53 @@ EOF
 
 alias nvim-packersync="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
+# create temporary emacs environment
+function emacs-minimal-env() {
+  cd "$(mktemp -d)"
+  export HOME=$PWD
+  export XDG_CONFIG_HOME=$HOME/.config
+  export XDG_DATA_HOME=$HOME/.local/share
+  export XDG_CACHE_HOME=$HOME/.cache
+  mkdir -p ~/.emacs.d/
+  cat << EOF > ~/.emacs.d/init.el
+  ;;; init.el --- My init.el  -*- lexical-binding: t; -*-
+
+;; this enables this running method
+;;   emacs -q -l ~/.debug.emacs.d/{{pkg}}/init.el
+(eval-and-compile
+  (when (or load-file-name byte-compile-current-file)
+    (setq user-emacs-directory
+          (expand-file-name
+           (file-name-directory (or load-file-name byte-compile-current-file))))))
+
+(eval-and-compile
+  (customize-set-variable
+   'package-archives '(("org"   . "https://orgmode.org/elpa/")
+                       ("melpa" . "https://melpa.org/packages/")
+                       ("gnu"   . "https://elpa.gnu.org/packages/")))
+  (package-initialize)
+  (unless (package-installed-p 'leaf)
+    (package-refresh-contents)
+    (package-install 'leaf))
+
+  (leaf leaf-keywords
+    :ensure t
+    :config
+    ;; initialize leaf-keywords.el
+    (leaf-keywords-init)))
+
+;; -----------------------------------------------------------
+
+(provide 'init)
+EOF
+  # vifm setup
+  mkdir -p ~/.config/vifm
+  cp /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
+
+  pwd
+  ls -la
+}
+
 # --- unsettled
 
 # direnv
