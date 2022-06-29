@@ -1,8 +1,35 @@
 ## ページャーをbatにする
 export PAGER='bat'
 
-# x server
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+
+# settings on WSL
+if uname -r |grep -iq 'microsoft' ; then
+  # x server
+  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+  # (WSL) open in host Windows 
+  export BROWSER=wslview
+  # keyrepeat value
+  xset r rate 200 40
+
+  ## Windows側のGoパッケージのパス
+  ## gocopy, gopasteによるクリップボードアクセスに使う
+  export PATH="$PATH:/mnt/c/Users/lance/go/bin"
+
+  ## Windows側のあれそれを都合よく叩く用パス
+  export PATH="$PATH:/mnt/c/users/lance/.path/"
+
+  ## ~/binにWin32yankを置いたので
+  export PATH="$PATH:$HOME/bin/"
+
+  ## codeコマンドのパス通す
+  export PATH="$PATH:/mnt/c/Users/lance/AppData/Local/Programs/Microsoft VS Code/bin"
+
+  ## Windows側でopen
+  function open() { /mnt/c/Windows/System32/cmd.exe /c start $(wslpath -w $1) }
+
+  # brew
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # ime
 export GTK_IM_MODULE=fcitx
