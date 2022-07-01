@@ -171,8 +171,10 @@ function emacs-minimal-env() {
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
+(setq inhibit-splash-screen t)
 ;; -----------------------------------------------------------
 
+;; -----------------------------------------------------------
 (provide 'init)
 EOF
   # vifm setup
