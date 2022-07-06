@@ -17,3 +17,6 @@ Diagnostics:
       # magic numbers
       - cppcoreguidelines-avoid-magic-numbers
       - readability-magic-numbers
+      - modernize-use-trailing-return-type
+      - google-build-using-namespace # to use `using namespace std` in competitive programming
+      - cppcoreguidelines-macro-usage # to use dirty macro in competitive programming
