@@ -24,6 +24,7 @@ export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
 
 # cargo(Rust)
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/:$PATH"
 
 # ghcup(Haskell)
 export PATH="$HOME/.ghcup/bin:$PATH"

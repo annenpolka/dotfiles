@@ -1,6 +1,8 @@
 ## ページャーをbatにする
 export PAGER='bat'
 
+# api tokens
+source ~/.annenpolka_tokens
 
 # settings on WSL
 if uname -r |grep -iq 'microsoft' ; then
