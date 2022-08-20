@@ -56,6 +56,9 @@ alias zenhan="/mnt/c/Users/lance/scoop/shims/zenhan.exe"
 ## windows側のkomorebicを叩く
 alias komorebic="/mnt/c/Users/lance/scoop/shims/komorebic.exe"
 
+#windows側のntop
+alias ntop="/mnt/c/Users/lance/scoop/shims/ntop.exe"
+
 ## alias for Python3, pip3
 alias python=python3 
 alias pip=pip3
@@ -65,7 +68,4 @@ export PATH=$PATH:~/go/bin
 
 ## パッケージの探索範囲絡みのパスらしい
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
-
-# nvim-lsp-installer
-export PATH=$PATH:~/.local/share/nvim/lsp_servers
 
