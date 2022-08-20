@@ -85,9 +85,6 @@ fi
 ## neovim startup time check
 alias nvtime="nvim --startuptime ./startup.log"
 
-## initialize thefuck
-eval $(thefuck --alias)
-
 # create temporary neovim environment
 function nvim-minimal-env() {
   cd "$(mktemp -d)"
@@ -203,6 +200,8 @@ EOF
 eval "$(direnv hook zsh)"
 export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 
+## initialize thefuck
+eval $(thefuck --alias)
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                      Initialization                      │
