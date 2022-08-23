@@ -194,14 +194,17 @@ EOF
   ls -la
 }
 
-# --- unsettled
+# --- alias scripts
 
 # direnv
 eval "$(direnv hook zsh)"
 export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 
-## initialize thefuck
+# initialize thefuck
 eval $(thefuck --alias)
+
+# zoxide
+eval "$(zoxide init zsh)"
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                      Initialization                      │
