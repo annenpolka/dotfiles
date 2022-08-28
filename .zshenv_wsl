@@ -4,6 +4,9 @@ export PAGER='bat'
 # api tokens
 source ~/.annenpolka_tokens
 
+# include ac-library
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$HOME/.local/lib/ac-library"
+
 # settings on WSL
 if uname -r |grep -iq 'microsoft' ; then
   # x server

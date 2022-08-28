@@ -19,9 +19,6 @@ setopt AUTO_CD
 # default editor 
 export EDITOR=nvim
 
-# include ac-library
-export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:~/.local/lib/ac-library"
-
 # cargo(Rust)
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/:$PATH"
@@ -84,6 +81,10 @@ fi
   
 ## neovim startup time check
 alias nvtime="nvim --startuptime ./startup.log"
+
+## emacs daemon aliases
+alias ec="emacsclient -n -c"
+alias er="emacsclient -e '(kill-emacs)' ; emacs --daemon"
 
 # create temporary neovim environment
 function nvim-minimal-env() {
