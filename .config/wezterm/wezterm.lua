@@ -1,5 +1,6 @@
 ---@diagnostic disable: unused-local
 local wezterm = require("wezterm")
+local act = wezterm.action
 local os = require("os")
 local is_mac = wezterm.target_triple:find("darwin")
 local is_windows = wezterm.target_triple:find("windows")
@@ -39,24 +40,44 @@ return {
 	--  ╭──────────────────────────────────────────────────────────╮
 	--  │                          Keymap                          │
 	--  ╰──────────────────────────────────────────────────────────╯
+	-- enable progressive key combinations
+	enable_csi_u_key_encoding = true,
 	-- timeout_milliseconds defaults to 1000 and can be omitted
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = {
 		{
 			key = "\\",
 			mods = "LEADER",
-			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
 		{
 			key = "-",
 			mods = "LEADER",
-			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 		-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
 		{
 			key = "a",
 			mods = "LEADER|CTRL",
-			action = wezterm.action.SendString("\x01"),
+			action = act.SendString("\x01"),
+		},
+		-- `C-@` sends `C-Space`
+		{
+			key = "@",
+			mods = "CTRL",
+			action = act.SendKey({
+				key = "Space",
+				mods = "CTRL",
+			}),
+		},
+		-- `C-/` sends `C-_`
+		{
+			key = "/",
+			mods = "CTRL",
+			action = act.SendKey({
+				key = "_",
+				mods = "CTRL",
+			}),
 		},
 	},
 }
