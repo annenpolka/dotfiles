@@ -167,9 +167,6 @@ EOF
 eval "$(direnv hook zsh)"
 export DIRENV_LOG_FORMAT="" # 静かにしてもらう
 
-# initialize thefuck
-eval $(thefuck --alias)
-
 # zoxide
 eval "$(zoxide init zsh)"
 
