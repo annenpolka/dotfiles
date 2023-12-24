@@ -49,6 +49,9 @@ alias lg=lazygit
 ## lazydocker = lz
 alias lz=lazydocker
 
+alias gx="gh copilot explain"
+alias gs="gh copilot suggest"
+
 ## xplr with cd on exit
 alias xcd='cd "$(xplr --print-pwd-as-result)"'
 
