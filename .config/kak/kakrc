@@ -45,10 +45,6 @@ plug "kak-lsp/kak-lsp" do %{
     lsp-inlay-diagnostics-enable global    
 }
 
-plug "alexherbo2/tmux.kak" config %{
-	tmux-integration-enable
-}
-
 ## File Manager
 plug "andreyorst/kaktree" config %{
     hook global WinSetOption filetype=kaktree %{
