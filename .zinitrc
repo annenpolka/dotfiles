@@ -16,7 +16,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 ### directory presets from prezto
 zinit snippet PZTM::directory
-zinit snippet PZTM::command-not-found
+# zinit snippet PZTM::command-not-found
 
 ### z jump
 #zinit light "agkozak/zsh-z"
