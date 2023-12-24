@@ -78,7 +78,6 @@ if [[ $(command -v eza) ]]; then
   alias lta=eta
 fi
 
-
 ## neovim startup time check
 # alias nvtime="nvim --startuptime ./startup.log"
 
