@@ -112,42 +112,6 @@ EOF
   ls -la
 }
 
-# function nvim-minimal-env-packer() {
-#   cd "$(mktemp -d)"
-#   export HOME=$PWD
-#   export XDG_CONFIG_HOME=$HOME/.config
-#   export XDG_DATA_HOME=$HOME/.local/share
-#   export XDG_CACHE_HOME=$HOME/.cache
-#   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-#        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-#   mkdir -p ~/.config/nvim
-#   cat << EOF > ~/.config/nvim/init.lua
-# vim.cmd [[syntax enable]]
-# vim.cmd [[filetype plugin indent on]]
-#
-# local execute = vim.api.nvim_command
-# local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-#
-# if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-#   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-# end
-#
-# vim.cmd [[packadd packer.nvim]]
-#
-# return require('packer').startup(function()
-#   use {'wbthomason/packer.nvim', opt = true}
-# end)
-# EOF
-# # do not write under this line because it was returned
-#
-#   mkdir -p ~/.config/vifm
-#   ln -s /home/annenpolka/.config/vifm/vifmrc ~/.config/vifm
-#   pwd
-#   ls -la
-# }
-
-alias nvim-packersync="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
-
 # create temporary emacs environment
 # function emacs-minimal-env() {
 #   cd "$(mktemp -d)"
