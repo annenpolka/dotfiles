@@ -69,3 +69,5 @@ export PATH=$PATH:~/go/bin
 ## パッケージの探索範囲絡みのパスらしい
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 
+## php composer
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
