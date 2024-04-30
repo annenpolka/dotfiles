@@ -28,7 +28,7 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 
 # local bin
 export PATH="$HOME/.local/bin:$PATH"
-
+export PATH="$PATH:/usr/local/bin"
 
 # emacs vterm configuration
 # if [[ "$INSIDE_EMACS" = 'vterm' ]]; then

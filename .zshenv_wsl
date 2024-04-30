@@ -2,7 +2,7 @@
 export PAGER='bat'
 
 # api tokens
-source ~/.annenpolka_tokens
+# source ~/.annenpolka_tokens
 
 # include ac-library
 export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$HOME/.local/lib/ac-library"
