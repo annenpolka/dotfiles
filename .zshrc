@@ -28,7 +28,7 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 
 # local bin
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/usr/local/bin"
+export PATH="/usr/local/bin:$PATH"
 
 # emacs vterm configuration
 # if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
@@ -49,8 +49,12 @@ alias lg=lazygit
 ## lazydocker = lz
 alias lz=lazydocker
 
+# copilot commands
 alias gx="gh copilot explain"
 alias gs="gh copilot suggest"
+
+# podman-remote
+alias podman='podman-remote-static-linux_amd64'
 
 ## xplr with cd on exit
 alias xcd='cd "$(xplr --print-pwd-as-result)"'
