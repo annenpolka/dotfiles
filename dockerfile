@@ -1,19 +1,19 @@
 FROM ubuntu:latest
 
 # 必要なパッケージのインストール
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y \
+    git \
+    bash \
+    findutils
 
-# dotfilesリポジトリをクローン
-RUN git clone https://github.com/annenpolka/dotfiles.git /app/dotfiles
+# dotfilesリポジトリのクローン
+RUN git clone https://github.com/annenpolka/dotfiles.git /root/dotfiles
 
-# スクリプトをコンテナにコピー
-COPY init.sh /app/init.sh
+# Bashスクリプトをコンテナにコピー
+COPY scripts/dotfiles_symlink.sh /root/dotfiles_symlink.sh
 
 # スクリプトに実行権限を付与
-RUN chmod +x /app/init.sh
+RUN chmod +x /root/dotfiles_symlink.sh
 
-# デフォルトのワークディレクトリを設定
-WORKDIR /app
-
-# コンテナ起動時のデフォルトコマンドを設定
-CMD ["/bin/bash"]
+# スクリプトを実行
+CMD ["/root/dotfiles_symlink.sh"]
