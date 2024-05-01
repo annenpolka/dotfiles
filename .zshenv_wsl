@@ -10,7 +10,7 @@ export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$HOME/.local/lib/ac-library"
 # settings on WSL
 if uname -r |grep -iq 'microsoft' ; then
   # x server
-  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+  # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
   # (WSL) open in host Windows 
   export BROWSER=wslview
   # keyrepeat value
