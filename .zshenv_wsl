@@ -11,7 +11,7 @@ export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$HOME/.local/lib/ac-library"
 if uname -r |grep -iq 'microsoft' ; then
   # x server
   # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
-  # (WSL) open in host Windows 
+  # (WSL) open in host Windows
   export BROWSER=wslview
   # keyrepeat value
   xset r rate 200 40
@@ -49,10 +49,6 @@ fi
 ## cargo系パス
 # export PATH="$PATH:$HOME/.cargo/bin"
 
-
-## pipenvの仮想環境をプロジェクトローカルに作る
-export PIPENV_VENV_IN_PROJECT=true
-
 ## Windows側のzenhan叩く
 alias zenhan="/mnt/c/Users/lance/scoop/shims/zenhan.exe"
 
@@ -60,14 +56,14 @@ alias zenhan="/mnt/c/Users/lance/scoop/shims/zenhan.exe"
 alias komorebic="/mnt/c/Users/lance/scoop/shims/komorebic.exe"
 
 ## alias for Python3, pip3
-alias python=python3 
+alias python=python3
 alias pip=pip3
 
 ## Go
 export PATH=$PATH:~/go/bin
 
 ## パッケージの探索範囲絡みのパスらしい
-export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/x86_64-linux-gnu/pkgconfig
 
 ## php composer
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
