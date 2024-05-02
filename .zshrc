@@ -30,15 +30,8 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
-# emacs vterm configuration
-# if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-#     alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
-# fi
-# if [[ "$INSIDE_EMACS" = 'vterm' ]] \
-#     && [[ -n ${EMACS_VTERM_PATH} ]] \
-#     && [[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-zsh.sh ]]; then
-# 	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-zsh.sh
-# fi
+## pipenvの仮想環境をプロジェクトローカルに作る
+export PIPENV_VENV_IN_PROJECT=true
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
