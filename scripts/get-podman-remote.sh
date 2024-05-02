@@ -20,7 +20,7 @@ if [ -n "${download_url}" ]; then
 else
 	echo "ファイル '${file_name}' が見つかりませんでした。"
 	exit 1
-fi
+
 
 # ファイルを /usr/local に展開
 echo "ファイルを /usr/local に展開しています..."
@@ -30,3 +30,6 @@ echo "展開が完了しました。"
 # ダウンロードしたファイルを削除
 rm "${file_name}"
 echo "ダウンロードしたファイルを削除しました。"
+echo "次のコマンドでpodman machineへの接続を追加してください。"
+echo "podman system connection add --default podman-machine-default-root unix:///mnt/wsl/podman-sockets/podman-machine-default/podman-root.sock"
+echo "sudo usermod --append --groups 10 \$(whoami)"
