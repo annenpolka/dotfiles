@@ -6,14 +6,11 @@ RUN apt-get update && apt-get install -y \
     bash \
     findutils
 
-# dotfilesリポジトリのクローン
-RUN git clone https://github.com/annenpolka/dotfiles.git /root/dotfiles
-
-# Bashスクリプトをコンテナにコピー
-COPY scripts/dotfiles_symlink.sh /root/dotfiles_symlink.sh
+# ローカルからリポジトリをコピー
+COPY . /root/dotfiles
 
 # スクリプトに実行権限を付与
-RUN chmod +x /root/dotfiles_symlink.sh
+RUN chmod +x /root/dotfiles/scripts/dotfiles_symlink.sh
 
 # スクリプトを実行
-CMD ["/root/dotfiles_symlink.sh"]
+CMD ["/root/dotfiles/scripts/dotfiles_symlink.sh"]
