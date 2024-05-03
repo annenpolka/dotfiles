@@ -1,3 +1,5 @@
+# シンボリックリンク作成scriptテスト用
+
 FROM ubuntu:latest
 
 # 必要なパッケージのインストール
