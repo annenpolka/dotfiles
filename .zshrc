@@ -42,12 +42,8 @@ alias lg=lazygit
 ## lazydocker = lz
 alias lz=lazydocker
 
-# copilot commands
-alias gx="gh copilot explain"
-alias gs="gh copilot suggest"
-
 # podman-remote
-alias podman='podman-remote-static-linux_amd64'
+# alias podman='podman-remote-static-linux_amd64'
 
 ## xplr with cd on exit
 alias xcd='cd "$(xplr --print-pwd-as-result)"'
