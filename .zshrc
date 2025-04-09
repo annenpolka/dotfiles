@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/annenpolka/.zsh/completions:"* ]]; then export FPATH="/Users/annenpolka/.zsh/completions:$FPATH"; fi
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                          envvars                         │
 #  ╰──────────────────────────────────────────────────────────╯
@@ -36,7 +38,8 @@ export PIPENV_VENV_IN_PROJECT=true
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
 #  ╰──────────────────────────────────────────────────────────╯
-
+# copy pwd on mac
+alias cpwd='pwd | pbcopy && echo "現在のパスをコピーしました"'
 ## lazygit = lg
 alias lg=lazygit
 ## lazydocker = lz
@@ -50,12 +53,12 @@ alias xcd='cd "$(xplr --print-pwd-as-result)"'
 
 ## Ctrl+Eでvifmを呼び出すついでに抜けた時ディレクトリ移動するようにする
 function vicd() {
-    local dst="$(command vifm $1 $2 --choose-dir -)"
-    if [ -z "$dst" ]; then
-        echo 'Directory picking cancelled/failed'
-        return 1
-    fi
-    cd "$dst"
+  local dst="$(command vifm $1 $2 --choose-dir -)"
+  if [ -z "$dst" ]; then
+    echo 'Directory picking cancelled/failed'
+    return 1
+  fi
+  cd "$dst"
 }
 bindkey -s '^E' 'vicd . \n'
 
@@ -72,6 +75,13 @@ if [[ $(command -v eza) ]]; then
   alias lt=et
   alias eta='eza -T -a -I "node_modules|.git|.cache" --color=always --icons | less -r'
   alias lta=eta
+fi
+
+# Python3 関連のエイリアス（OS別）
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  # macOS環境の場合の設定
+  alias python='python3'
+  alias pip='pip3'
 fi
 
 ## neovim startup time check
@@ -91,7 +101,7 @@ function nvim-minimal-env() {
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   mkdir -p ~/.config/nvim
-  cat << EOF > ~/.config/nvim/init.vim
+  cat <<EOF >~/.config/nvim/init.vim
 syntax enable
 filetype plugin indent on
 
@@ -178,3 +188,9 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+PATH=~/.console-ninja/.bin:$PATH
+. "/Users/annenpolka/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
