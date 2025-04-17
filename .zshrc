@@ -35,6 +35,10 @@ export PATH="/usr/local/bin:$PATH"
 ## pipenvの仮想環境をプロジェクトローカルに作る
 export PIPENV_VENV_IN_PROJECT=true
 
+if [[ -f "$HOME/.secrets" ]]; then
+  source "$HOME/.secrets"
+fi
+
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
 #  ╰──────────────────────────────────────────────────────────╯
@@ -194,3 +198,7 @@ PATH=~/.console-ninja/.bin:$PATH
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
