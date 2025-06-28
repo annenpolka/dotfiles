@@ -13,7 +13,7 @@
       "Bash(go:*)",
 
       // Git操作は全て許可
-      "Bash(git:*)",
+      // "Bash(git:*)",
 
       // ビルド・テスト系
       "Bash(make:*)",
@@ -31,7 +31,7 @@
       "Bash(echo:*)",
 
       // プロジェクトディレクトリ内の読み書き
-      "Read(**)",
+      // "Read(**)",
       "Edit(./src/**)",
       "Edit(./tests/**)",
       "Edit(./docs/**)",
