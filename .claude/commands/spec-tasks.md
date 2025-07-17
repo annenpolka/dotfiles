@@ -12,29 +12,41 @@ Help the user create a detailed tasks.md file in the existing specs/{folder-name
 
 ## Task Breakdown Process
 
+This is an iterative process with implementation feedback loops.
+
 ### Step 1: Analyze Design Documents
 - Review specs/{folder-name}/requirements.md and specs/{folder-name}/design.md thoroughly
 - Identify all components and their dependencies
 - Map out the implementation order based on dependencies
 - Consider integration points and testing requirements
+- Assess implementation complexity and risks
 
 ### Step 2: Apply TDD Principles
 - Plan tasks around the Red-Green-Refactor cycle
 - Ensure each task starts with writing tests
 - Break down large features into testable units
 - Plan for continuous integration and testing
+- Define acceptance criteria for each task
 
 ### Step 3: Create Task Hierarchy
 - Use maximum 2-level hierarchy (1, 1.1, 1.2)
 - Ensure tasks are independent where possible
 - Plan for parallel development opportunities
 - Maintain clear traceability to requirements
+- Include risk assessment and mitigation plans
 
 ### Step 4: Define Clear Deliverables
 - Specify what code will be written
 - Define what tests will be created
 - Identify integration points
 - Plan for documentation updates
+- Define "done" criteria for each task
+
+### Step 5: Implementation Feedback Planning
+- Plan checkpoints for design validation
+- Define escalation paths for technical issues
+- Plan for requirement clarification needs
+- Include performance and security validation points
 
 ## TDD Integration Strategy
 
@@ -270,6 +282,42 @@ func (u *User) Validate() error {
 }
 ```
 
+## Implementation Feedback Loops
+
+### Feedback During Implementation
+```
+Task Start → Implementation → Issues Found → Feedback → Resolution → Continue
+     ↑                                                                   ↓
+     ←───────────── Return to design/requirements if needed ←────────────┘
+```
+
+### Common Implementation Feedback Scenarios
+1. **Design Complexity**: Task is more complex than expected
+2. **Technical Constraints**: Implementation approach needs adjustment
+3. **Performance Issues**: Design optimization required
+4. **Integration Problems**: Interface changes needed
+5. **Requirement Ambiguity**: Clarification needed from stakeholders
+
+### Feedback Resolution Process
+1. **Identify Issue**: Document the specific problem
+2. **Assess Impact**: Determine if design or requirements need changes
+3. **Escalate if Needed**: Involve stakeholders for major changes
+4. **Update Documentation**: Modify specs if necessary
+5. **Adjust Tasks**: Update remaining tasks based on changes
+
+### When to Return to Previous Phases
+**Return to Design Phase if:**
+- Architecture needs significant changes
+- Component interfaces need modification
+- Performance requirements can't be met
+- Security vulnerabilities are found in design
+
+**Return to Requirements Phase if:**
+- Requirements are ambiguous or contradictory
+- Scope needs adjustment
+- New requirements are discovered
+- Technical constraints make requirements impossible
+
 ## Progress Tracking
 
 ### Task Status:
@@ -277,6 +325,7 @@ func (u *User) Validate() error {
 - [→] In Progress: Currently working on
 - [✓] Complete: Finished and tested
 - [!] Blocked: Waiting for dependency or decision
+- [⚠] Issue: Problem found, needs escalation
 
 ### Notes Format:
 ```markdown
@@ -284,12 +333,16 @@ func (u *User) Validate() error {
 - Started: 2024-01-15
 - Completed: 2024-01-16
 - Issues: None
+- Design Changes: None
 - Next: Ready for 1.2
 ```
 
-## Quality Checklist
+## Quality Gates
 
-Before marking tasks complete:
+### Task Quality Gate
+**Must pass before marking task complete:**
+
+#### Code Quality
 - [ ] All tests pass (unit, integration, e2e)
 - [ ] Code follows project style guidelines
 - [ ] Documentation is updated
@@ -297,6 +350,33 @@ Before marking tasks complete:
 - [ ] Performance requirements are met
 - [ ] Code is properly reviewed
 - [ ] Integration points are verified
+
+#### Design Validation
+- [ ] Implementation matches design specifications
+- [ ] Component interfaces work as designed
+- [ ] Error handling follows design patterns
+- [ ] Performance meets design expectations
+
+#### Requirements Validation
+- [ ] Task fulfills linked requirements
+- [ ] Acceptance criteria are met
+- [ ] Edge cases are handled
+- [ ] User stories are satisfied
+
+### Implementation Quality Gate
+**Must pass before proceeding to next major phase:**
+
+#### System Integration
+- [ ] All components integrate correctly
+- [ ] End-to-end workflows function properly
+- [ ] System performance meets requirements
+- [ ] Security measures are implemented
+
+#### Documentation Update
+- [ ] Design documents reflect implementation changes
+- [ ] Requirements are updated if modified
+- [ ] All decisions are documented
+- [ ] Lessons learned are captured
 
 ## Risk Management
 
@@ -327,7 +407,24 @@ specs/
 2. **Ask for project name if needed**: "Which project are you working on?"
 3. **Create the tasks file**: Create `specs/{folder-name}/tasks.md` with the template
 4. **Reference design and requirements**: Link tasks back to specific design decisions and requirements
-5. **Update references**: Use relative paths like `./requirements.md` and `./design.md` in the tasks document
+5. **Plan feedback loops**: Include checkpoints for design and requirements validation
+6. **Define escalation paths**: Document how to handle implementation issues
+7. **Set up quality gates**: Ensure quality checkpoints are in place
+8. **Update references**: Use relative paths like `./requirements.md` and `./design.md` in the tasks document
+
+## Task Execution Process
+### During Implementation
+1. **Monitor Progress**: Track task completion and issues
+2. **Validate Quality**: Ensure quality gates are met
+3. **Handle Feedback**: Process implementation feedback promptly
+4. **Update Documentation**: Keep specs synchronized with implementation
+5. **Escalate Issues**: Involve stakeholders when needed
+
+### Feedback Integration
+- **Document Issues**: Record all problems and resolutions
+- **Update Specs**: Modify requirements/design if needed
+- **Notify Stakeholders**: Keep all parties informed of changes
+- **Adjust Tasks**: Update remaining tasks based on learnings
 
 ## Next Steps
 

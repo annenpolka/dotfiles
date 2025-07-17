@@ -12,13 +12,16 @@ Help the user create a detailed requirements.md file in the specs/{folder-name}/
 
 ## Requirements Documentation Process
 
-### Step 1: Understand the Feature
+This is an iterative process with feedback loops and quality gates.
+
+### Step 1: Initial Feature Understanding
 - Ask clarifying questions about the feature's purpose and scope
 - Identify the target users and their needs
 - Understand the business value and constraints
+- Create rough user story outlines
 
-### Step 2: Write User Stories
-Use this format for each requirement:
+### Step 2: Requirements Drafting
+Write initial requirements using this format:
 ```markdown
 ### Requirement [Number]
 **User Story:** As a [role], I want [functionality], so that [value/reason]
@@ -48,10 +51,16 @@ Use these five patterns for acceptance criteria:
 5. **AS SOON AS** - Immediate response requirements
    - `AS SOON AS error is detected THEN system SHALL log to error system`
 
-### Step 4: Ensure Quality
+### Step 4: Requirements Refinement
+- Add edge cases and error scenarios
+- Include non-functional requirements
+- Consider security and performance implications
+- Validate technical feasibility
+
+### Step 5: Quality Gate Review
 Check each requirement for:
 - **Completeness**: All scenarios covered
-- **Consistency**: No contradictions
+- **Consistency**: No contradictions  
 - **Testability**: Can be verified through testing
 - **Clarity**: Unambiguous language
 - **Traceability**: Clear connection to business needs
@@ -142,9 +151,34 @@ Check each requirement for:
 - Are there accessibility requirements?
 - What devices/platforms need support?
 
-## Validation Checklist
+## Feedback Loop and Iteration Process
 
-Before moving to the Design phase, ensure:
+### Iteration Cycle
+```
+Draft → Review → Feedback → Refinement → Re-review → Approval
+  ↑                                                     ↓
+  ←──────────── Return if issues found ←────────────────┘
+```
+
+### Common Feedback Scenarios
+1. **Ambiguous Requirements**: Need clearer acceptance criteria
+2. **Missing Edge Cases**: Add error handling scenarios
+3. **Technical Constraints**: Adjust requirements based on feasibility
+4. **Scope Creep**: Refine or split requirements
+5. **Stakeholder Concerns**: Address business value questions
+
+### Handling Feedback
+- **Document Changes**: Track what was changed and why
+- **Version Control**: Keep history of requirement iterations
+- **Stakeholder Alignment**: Ensure all parties agree on changes
+- **Impact Assessment**: Evaluate how changes affect other requirements
+
+## Quality Gates
+
+### Requirements Quality Gate
+**Must pass before proceeding to Design phase:**
+
+#### Completeness Check
 - [ ] All user stories follow the correct format
 - [ ] Acceptance criteria use EARS patterns
 - [ ] Requirements are testable and verifiable
@@ -152,6 +186,25 @@ Before moving to the Design phase, ensure:
 - [ ] Error scenarios are covered
 - [ ] Dependencies are identified
 - [ ] Glossary defines domain terms
+
+#### Consistency Check
+- [ ] No contradictory requirements
+- [ ] Terminology is consistent throughout
+- [ ] Priority levels are clear
+- [ ] Scope boundaries are defined
+
+#### Stakeholder Approval
+- [ ] Business stakeholders approve functional requirements
+- [ ] Technical stakeholders confirm feasibility
+- [ ] Security stakeholders approve security requirements
+- [ ] All concerns and questions are resolved
+
+### When to Return to Requirements
+During design or implementation, return to requirements if:
+- Technical constraints make requirements unrealistic
+- New edge cases are discovered
+- Scope needs adjustment
+- Performance requirements need refinement
 
 ## File Structure
 After completion, you will have created:
@@ -172,6 +225,23 @@ Once requirements are complete and approved:
 1. **Always ask for project name first**: "What is the name of your project/feature?"
 2. **Create the directory structure**: Use `mkdir -p specs/{folder-name}`
 3. **Generate the requirements file**: Create `specs/{folder-name}/requirements.md` with the template
-4. **Reference the structure**: Inform user about the file location and next steps
+4. **Guide through iterations**: Help user through the feedback loop process
+5. **Enforce quality gates**: Don't proceed to design until all checklist items are complete
+6. **Document approval**: Note who approved requirements and when
 
-Remember: Requirements are the foundation of successful development. Take time to get them right before moving forward.
+## Approval Process
+### Before Design Phase
+1. **Internal Review**: Check all quality gate items
+2. **Stakeholder Review**: Present to business and technical stakeholders
+3. **Feedback Integration**: Address all feedback and concerns
+4. **Final Approval**: Get explicit approval from all stakeholders
+5. **Documentation**: Record approval decision and participants
+
+### Moving to Next Phase
+Only proceed to `/spec-design` after:
+- All quality gate items are checked
+- All stakeholders have approved
+- All feedback is addressed
+- Requirements are stable and agreed upon
+
+Remember: Requirements are the foundation of successful development. The iterative process and quality gates ensure we build the right thing. Take time to get them right before moving forward.
