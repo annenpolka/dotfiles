@@ -1,100 +1,15 @@
 {
-  "permissions": {
-    "allow": [
-      // 開発系コマンド
-      "Bash(npm:*)",
-      "Bash(yarn:*)",
-      "Bash(pnpm:*)",
-      "Bash(bun:*)",
-      "Bash(cargo:*)",
-      "Bash(python:*)",
-      "Bash(pip:*)",
-      "Bash(poetry:*)",
-      "Bash(go:*)",
-
-      // Git操作は全て許可
-      // "Bash(git:*)",
-
-      // ビルド・テスト系
-      "Bash(make:*)",
-      "Bash(docker:*)",
-      "Bash(docker-compose:*)",
-
-      // 基本的なファイル操作
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(grep:*)",
-      "Bash(rg:*)",
-      "Bash(find:*)",
-      "Bash(mkdir:*)",
-      "Bash(touch:*)",
-      "Bash(echo:*)",
-
-      // プロジェクトディレクトリ内の読み書き
-      // "Read(**)",
-      "Edit(./src/**)",
-      "Edit(./tests/**)",
-      "Edit(./docs/**)",
-      "Edit(./scripts/**)",
-      "Edit(./*.json)",
-      "Edit(./*.yaml)",
-      "Edit(./*.yml)",
-      "Edit(./*.toml)",
-      "Edit(./README.md)",
-      "Edit(./.gitignore)",
-
-      // 設定ファイルの読み取り
-      "Read(~/.zshrc)",
-      "Read(~/.bashrc)",
-      "Read(~/.config/**)",
-
-      // Web関連（APIドキュメントなど）
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:docs.rs)",
-      "WebFetch(domain:npmjs.com)",
-      "WebFetch(domain:pypi.org)"
-    ],
-    "deny": [
-      // 危険なコマンドは禁止
-      "Bash(rm -rf:*)",
-      "Bash(sudo:*)",
-      "Bash(chmod 777:*)",
-
-      // パッケージの公開は禁止
-      "Bash(npm publish:*)",
-      "Bash(cargo publish:*)",
-      "Bash(pip upload:*)",
-
-      // システムファイルへの書き込み
-      "Edit(/etc/**)",
-      "Edit(/usr/**)",
-      "Edit(/bin/**)",
-
-      // SSH鍵などセンシティブなファイル
-      "Read(~/.ssh/**)",
-      "Edit(~/.ssh/**)",
-
-      // 外部への無制限な通信
-      "Bash(curl:*)",
-      "Bash(wget:*)"
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
     ]
-  },
-
-  "env": {
-    // コスト警告は有効のまま（予期せぬ高額請求を防ぐ）
-    "DISABLE_COST_WARNINGS": "0",
-
-    // タイムアウトは長めに設定（ビルドやテストに時間がかかる場合）
-    "BASH_DEFAULT_TIMEOUT_MS": "300000",  // 5分
-    "BASH_MAX_TIMEOUT_MS": "600000",      // 10分
-
-    // 自動アップデートは有効（セキュリティ修正を受け取る）
-    "DISABLE_AUTOUPDATER": "0"
-  },
-
-  // co-authoredコメントは含める（貢献を明確にする）
-  "includeCoAuthoredBy": true,
-
-  // 古いキャッシュは60日で削除
-  "cleanupPeriodDays": 60
+  }
 }
