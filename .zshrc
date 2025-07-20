@@ -28,6 +28,9 @@ export PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/:$PAT
 # ghcup(Haskell)
 export PATH="$HOME/.ghcup/bin:$PATH"
 
+# GOPATH
+export PATH="$PATH:$(go env GOPATH)/bin"
+
 # local bin
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
@@ -202,3 +205,6 @@ compinit
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+eval "$(mise activate zsh)"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
