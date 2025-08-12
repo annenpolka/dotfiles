@@ -1,0 +1,13 @@
+theme      = tokyonight
+font-family = "SF Mono"
+font-size   = 15
+font-feature = -dlig
+font-feature = -liga
+font-feature = -calt
+
+background-opacity = 0.99
+background-blur    = 20
+unfocused-split-opacity = 0.8
+
+fullscreen = true
+window-inherit-working-directory = true
