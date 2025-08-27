@@ -2,7 +2,7 @@
 
 ## TDD Approach
 
-Follow t-wada's TDD practices with the Red-Green-Refactor cycle:
+Follow t_wada's TDD practices with the Red-Green-Refactor cycle:
 
 1. **Red**: Write a failing test first
 2. **Green**: Write minimal code to make the test pass
@@ -13,6 +13,6 @@ Follow t-wada's TDD practices with the Red-Green-Refactor cycle:
 1. 網羅したいテストシナリオのリスト（テストリスト）を書く
 2. テストリストの中から「ひとつだけ」選び出し、実際に、具体的で、実行可能なテストコードに翻訳し、テストが失敗することを確認する
 3.プロダクトコードを変更し、いま書いたテスト（と、それまでに書いたすべてのテスト）を成功させる（その過程で気づいたことはテストリストに追加する）
-3. 必要に応じてリファクタリングを行い、実装の設計を改善する
-テストリストが空になるまでステップ2に戻って繰り返す
+4. 必要に応じてリファクタリングを行い、実装の設計を改善する
+5. テストリストが空になるまでステップ2に戻って繰り返す
 
