@@ -42,6 +42,8 @@ if [[ -f "$HOME/.secrets" ]]; then
   source "$HOME/.secrets"
 fi
 
+# homebrew
+export PATH="/opt/homebrew/bin:$PATH"
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
 #  ╰──────────────────────────────────────────────────────────╯
@@ -196,7 +198,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-PATH=~/.console-ninja/.bin:$PATH
 . "/Users/annenpolka/.deno/env"
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
