@@ -1,0 +1,20 @@
+projects = { "/Users/annenpolka/dotfiles" = { trust_level = "trusted" }, "/Users/annenpolka/junks/cclog" = { trust_level = "trusted" }, "/Users/annenpolka/junks/thinktank" = { trust_level = "trusted" } , "/Users/annenpolka/.codex" = { trust_level = "trusted" } , "/Users/annenpolka/junks/mcp-servers/roo-logger" = { trust_level = "trusted" } , "/Users/annenpolka/junks" = { trust_level = "trusted" } }
+
+approval_policy = "on-request"
+sandbox_mode    = "workspace-write"
+network_access  = true
+model_reasoning_effort = "high"
+
+# notify = ["bash", "afplay /System/Library/Sounds/Glass.aiff"]
+notify = ["bash", "/Users/annenpolka/.codex/notify_macos.sh"]
+
+[tools]
+web_search = true
+
+# [mcp_servers.serena]
+# command = "uvx"
+# args = ["--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "codex"]
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
