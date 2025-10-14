@@ -1,5 +1,9 @@
 # AGENTS.md
 
+## draftsnap
+
+はじめに`draftsnap prompt`コマンドを実行し、指示を理解して作業を記録してください。
+
 ## TDD Approach
 
 Follow t_wada's TDD practices with the Red-Green-Refactor cycle:
