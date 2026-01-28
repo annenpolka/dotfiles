@@ -421,6 +421,15 @@ if has('win')
     nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
     " Yank path to current file to Windows clipboard with forward slashes
     nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
+elseif executable('pbcopy')
+    " macOS: Yank current directory path into the clipboard
+    nnoremap yd :!echo -n %d | pbcopy %i<cr>:echo expand('%"d') "is yanked"<cr>
+    " macOS: Yank current file path into the clipboard
+    nnoremap yf :!echo -n %c:p | pbcopy %i<cr>:echo expand('%"c:p') "is yanked"<cr>
+    " macOS: Yank current filename into the clipboard
+    nnoremap yn :!echo -n %c | pbcopy %i<cr>:echo expand('%"c') "is yanked"<cr>
+    " macOS: Yank current filename without extension into the clipboard
+    nnoremap yr :!echo -n %c:r | pbcopy %i<cr>:echo expand('%"c:r') "is yanked"<cr>
 elseif executable('xclip')
     " Yank current directory path into the clipboard
     nnoremap yd :!echo %d | xclip %i<cr>

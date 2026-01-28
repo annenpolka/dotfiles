@@ -203,9 +203,19 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 autoload -Uz compinit
 compinit
 
+# Load git-gtr completions (REQUIRED - must be sourced after compinit)
+source ~/.zsh/completions/_git-gtr
 
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
 eval "$(mise activate zsh)"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/annenpolka/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+
+
+# opencode
+export PATH=/Users/annenpolka/.opencode/bin:$PATH
