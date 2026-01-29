@@ -69,7 +69,7 @@ function vicd() {
   fi
   cd "$dst"
 }
-bindkey -s '^E' 'vicd . \n'
+bindkey -s '^E' 'y . \n'
 
 ## yazi with cd on exit
 function y() {
