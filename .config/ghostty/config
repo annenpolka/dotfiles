@@ -7,7 +7,10 @@ font-feature = -calt
 
 background-opacity = 0.99
 background-blur    = 20
-unfocused-split-opacity = 0.8
+unfocused-split-opacity = 0.6
 
 fullscreen = true
 window-inherit-working-directory = true
+
+keybind = super+slash=goto_split:previous
+keybind = super+backslash=goto_split:next
