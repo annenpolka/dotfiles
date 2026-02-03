@@ -4,6 +4,10 @@
 
 [mgr]
 
+prepend_keymap = [
+	{ on = "<C-p>", run = "plugin toggle-pane max-preview", desc = "Toggle preview pane" },
+]
+
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
@@ -85,6 +89,8 @@ keymap = [
 	{ on = "z",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	{ on = "Z",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 	{ on = "<C-g>",     run = "shell 'lazygit' --block",   desc = "Open lazygit" },
+	{ on = "C",         run = "shell 'claude' --block",   desc = "Open Claude Code" },
+	{ on = "<S-f>",     run = "plugin easyjump",            desc = "Toggle easyjump mode" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
@@ -99,6 +105,7 @@ keymap = [
 	{ on = [ "c", "d" ], run = "copy dirname",          desc = "Copy the directory path" },
 	{ on = [ "c", "f" ], run = "copy filename",         desc = "Copy the filename" },
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+	{ on = [ "c", "y" ], run = "shell 'cat \"$0\" | pbcopy' --confirm", desc = "Copy file contents to clipboard" },
 
 	# Filter
 	{ on = "f", run = "filter --smart", desc = "Filter files" },

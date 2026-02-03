@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "mikavilpas/easyjump.yazi:easyjump"
+rev = "92649ab"
+hash = "dee6991cbf5f04f879be03218856d65"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "557684b"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
+
+[flavor]
+deps = []
