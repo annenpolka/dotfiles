@@ -13,7 +13,7 @@ Co-authored-by: Codex
 
 ## draftsnap
 
-BEFORE ANYTHING ELSE: はじめに`draftsnap prompt`コマンドを実行し、指示を理解して作業や対話を記録してください。
+BEFORE ANYTHING ELSE: セッションのはじめに`draftsnap prompt`コマンドを実行し、指示を理解して作業や対話を記録してください。
 
 ## TDD Approach
 

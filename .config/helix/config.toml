@@ -1,0 +1,6 @@
+[editor]
+default-yank-register = "+"
+
+[editor.soft-wrap]
+enable = true
+wrap-indicator = ""
