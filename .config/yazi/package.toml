@@ -1,16 +1,16 @@
 [[plugin.deps]]
 use = "mikavilpas/easyjump.yazi:easyjump"
-rev = "92649ab"
+rev = "10f538c"
 hash = "dee6991cbf5f04f879be03218856d65"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "557684b"
+rev = "25918dc"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "88990a6"
+rev = "25918dc"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [flavor]

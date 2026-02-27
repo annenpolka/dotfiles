@@ -23,18 +23,24 @@ PREFIX="review-practice"
 
 usage() {
   cat <<EOF
-Usage: $SCRIPT_NAME <PR番号> [--repo owner/repo] [--dry-run]
+Usage: $SCRIPT_NAME <PR番号> [--repo owner/repo] [--dry-run] [--final] [--until <SHA>] [--in-place]
 
 Options:
-  --repo    対象リポジトリ (デフォルト: カレントリポジトリ)
-  --dry-run 実際にpush/PR作成せず、何が起きるかだけ表示
-  -h        このヘルプを表示
+  --repo      対象リポジトリ (デフォルト: カレントリポジトリ)
+  --dry-run   実際にpush/PR作成せず、何が起きるかだけ表示
+  --final     マージ直前の最終版を使用 (デフォルト: PR作成時の初期状態)
+  --until     指定コミットSHAまでを含める (前方一致)
+  --in-place  元リポジトリに直接PRを作成 (旧動作)
+  -h          このヘルプを表示
 
 Examples:
   $SCRIPT_NAME 123
   $SCRIPT_NAME https://github.com/myorg/myrepo/pull/123
   $SCRIPT_NAME 456 --repo myorg/myrepo
   $SCRIPT_NAME 789 --dry-run
+  $SCRIPT_NAME 789 --final
+  $SCRIPT_NAME 789 --until abc123
+  $SCRIPT_NAME 789 --in-place
 EOF
   exit 1
 }
@@ -72,6 +78,9 @@ PR_INPUT=""
 REPO_FLAG=""
 REPO_FLAG_ARGS=()
 DRY_RUN=false
+USE_INITIAL=true
+UNTIL_SHA=""
+IN_PLACE=false
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -82,6 +91,19 @@ while [[ $# -gt 0 ]]; do
       ;;
     --dry-run)
       DRY_RUN=true
+      shift
+      ;;
+    --final)
+      USE_INITIAL=false
+      shift
+      ;;
+    --until)
+      UNTIL_SHA="$2"
+      USE_INITIAL=true
+      shift 2
+      ;;
+    --in-place)
+      IN_PLACE=true
       shift
       ;;
     -h|--help)
@@ -110,11 +132,110 @@ if ! parse_pr_url "$PR_INPUT"; then
   exit 1
 fi
 
+# --- 元リポジトリのowner/repoを特定 ---
+ORIGINAL_OWNER=""
+ORIGINAL_REPO=""
+
+resolve_original_repo() {
+  # 1. --repo フラグまたはURLから設定済みの場合
+  if [[ ${#REPO_FLAG_ARGS[@]} -gt 0 ]]; then
+    local repo_slug="${REPO_FLAG_ARGS[1]}"
+    ORIGINAL_OWNER="${repo_slug%%/*}"
+    ORIGINAL_REPO="${repo_slug##*/}"
+    return 0
+  fi
+
+  # 2. git remote get-url origin からパース
+  local remote_url
+  remote_url=$(git remote get-url origin 2>/dev/null) || {
+    error "originリモートが見つかりません。--repo owner/repo を指定してください"
+    exit 1
+  }
+
+  if [[ "$remote_url" =~ github\.com[:/]([^/]+)/([^/.]+)(\.git)?$ ]]; then
+    ORIGINAL_OWNER="${BASH_REMATCH[1]}"
+    ORIGINAL_REPO="${BASH_REMATCH[2]}"
+    return 0
+  fi
+
+  error "リモートURLからowner/repoを特定できません: $remote_url"
+  exit 1
+}
+
+resolve_original_repo
+
+# --- 練習リポジトリのセットアップ ---
+PRACTICE_REMOTE="origin"
+PRACTICE_REPO=""
+PRACTICE_REPO_ARGS=()
+
+setup_practice_repo() {
+  if [[ "$IN_PLACE" == true ]]; then
+    PRACTICE_REMOTE="origin"
+    PRACTICE_REPO_ARGS=("${REPO_FLAG_ARGS[@]+"${REPO_FLAG_ARGS[@]}"}")
+    return 0
+  fi
+
+  PRACTICE_REPO="${ORIGINAL_OWNER}/${ORIGINAL_REPO}-review-practice"
+  PRACTICE_REPO_ARGS=(--repo "$PRACTICE_REPO")
+  PRACTICE_REMOTE="practice"
+
+  # 練習リポジトリの存在チェック
+  info "練習リポジトリ ${PRACTICE_REPO} を確認中..."
+  if gh repo view "$PRACTICE_REPO" --json name >/dev/null 2>&1; then
+    ok "練習リポジトリ: ${PRACTICE_REPO}"
+  else
+    info "練習リポジトリが存在しません。作成します..."
+    if [[ "$DRY_RUN" == true ]]; then
+      warn "[dry-run] gh repo create ${PRACTICE_REPO} --private"
+    else
+      gh repo create "$PRACTICE_REPO" \
+        --private \
+        --description "Review practice for ${ORIGINAL_OWNER}/${ORIGINAL_REPO}" \
+        || {
+          error "練習リポジトリの作成に失敗しました: ${PRACTICE_REPO}"
+          error "組織の権限を確認してください"
+          exit 1
+        }
+      ok "練習リポジトリを作成しました: ${PRACTICE_REPO}"
+    fi
+  fi
+
+  # originのURL形式に合わせてpractice URLを構築
+  local origin_url practice_url
+  origin_url=$(git remote get-url origin 2>/dev/null || true)
+  if [[ "$origin_url" =~ ^git@ ]]; then
+    practice_url="git@github.com:${PRACTICE_REPO}.git"
+  else
+    practice_url="https://github.com/${PRACTICE_REPO}.git"
+  fi
+
+  # git remote の追加・更新 (dry-runではスキップ)
+  if [[ "$DRY_RUN" == true ]]; then
+    info "[dry-run] git remote: ${PRACTICE_REMOTE} -> ${practice_url}"
+    return 0
+  fi
+
+  if git remote get-url "$PRACTICE_REMOTE" >/dev/null 2>&1; then
+    local current_url
+    current_url=$(git remote get-url "$PRACTICE_REMOTE")
+    if [[ "$current_url" != "$practice_url" ]]; then
+      warn "practiceリモートのURLを更新: ${practice_url}"
+      git remote set-url "$PRACTICE_REMOTE" "$practice_url"
+    fi
+  else
+    git remote add "$PRACTICE_REMOTE" "$practice_url"
+    ok "リモート追加: ${PRACTICE_REMOTE} -> ${practice_url}"
+  fi
+}
+
+setup_practice_repo
+
 # --- 元PRの情報を取得 ---
 info "PR #${PR_NUMBER} の情報を取得中..."
 
 PR_JSON=$(gh pr view "$PR_NUMBER" "${REPO_FLAG_ARGS[@]+"${REPO_FLAG_ARGS[@]}"}" \
-  --json title,body,mergeCommit,state,baseRefName,headRefOid,number)
+  --json title,body,mergeCommit,state,baseRefName,headRefOid,number,createdAt,commits)
 
 PR_STATE=$(echo "$PR_JSON" | jq -r '.state')
 if [[ "$PR_STATE" != "MERGED" ]]; then
@@ -130,6 +251,49 @@ HEAD_REF_OID=$(echo "$PR_JSON" | jq -r '.headRefOid')
 
 ok "PR: ${PR_TITLE}"
 ok "マージコミット: ${MERGE_SHA}"
+
+# --- PR作成時の初期コミットを特定 ---
+if [[ "$USE_INITIAL" == true ]]; then
+  PR_CREATED_AT=$(echo "$PR_JSON" | jq -r '.createdAt')
+  TOTAL_COMMITS=$(echo "$PR_JSON" | jq '.commits | length')
+
+  if [[ "$PR_CREATED_AT" == "null" || -z "$PR_CREATED_AT" ]]; then
+    warn "PR作成日時を取得できませんでした。最終バージョンを使用します。"
+    USE_INITIAL=false
+  elif [[ -n "$UNTIL_SHA" ]]; then
+    # --until で指定されたSHAまで
+    INITIAL_HEAD_IDX=$(echo "$PR_JSON" | jq -r --arg sha "$UNTIL_SHA" \
+      '[.commits | to_entries[] | select(.value.oid | startswith($sha))] | .[0].key // empty')
+    if [[ -z "$INITIAL_HEAD_IDX" ]]; then
+      error "--until で指定されたコミット '$UNTIL_SHA' がPR内に見つかりません"
+      exit 1
+    fi
+    INITIAL_HEAD=$(echo "$PR_JSON" | jq -r --argjson idx "$INITIAL_HEAD_IDX" '.commits[$idx].oid')
+    INITIAL_COUNT=$((INITIAL_HEAD_IDX + 1))
+  else
+    # createdAt 以前のコミットを初期バージョンとする
+    INITIAL_HEAD=$(echo "$PR_JSON" | jq -r --arg created "$PR_CREATED_AT" \
+      '[.commits[] | select(.committedDate <= $created)] | last | .oid // empty')
+    INITIAL_COUNT=$(echo "$PR_JSON" | jq --arg created "$PR_CREATED_AT" \
+      '[.commits[] | select(.committedDate <= $created)] | length')
+
+    if [[ -z "$INITIAL_HEAD" || "$INITIAL_COUNT" -eq 0 ]]; then
+      # PR作成直後にpushされたケース: 最初のコミットを使用
+      INITIAL_HEAD=$(echo "$PR_JSON" | jq -r '.commits[0].oid')
+      INITIAL_COUNT=1
+      warn "PR作成時のコミットを自動検出できませんでした。最初のコミットを使用します。"
+    fi
+  fi
+
+  if [[ "$USE_INITIAL" == true ]]; then
+    EXCLUDED_COUNT=$((TOTAL_COMMITS - INITIAL_COUNT))
+    if [[ "$EXCLUDED_COUNT" -gt 0 ]]; then
+      info "PR作成時のコミット: ${INITIAL_COUNT}/${TOTAL_COMMITS} を使用 (レビュー後の${EXCLUDED_COUNT}コミットを除外)"
+    else
+      ok "全${TOTAL_COMMITS}コミットがPR作成時のものです"
+    fi
+  fi
+fi
 
 # --- 元PRのブランチをfetch ---
 # GitHub は refs/pull/<number>/head に元のPRコミットを保持している
@@ -152,7 +316,11 @@ PARENT_LINE=$(git rev-list --parents -n 1 "$MERGE_SHA")
 PARENT_COUNT=$(echo "$PARENT_LINE" | wc -w)
 
 # FETCH_HEADから元PRのheadを取得
-PR_ORIGINAL_HEAD=$(git rev-parse FETCH_HEAD 2>/dev/null || echo "$HEAD_REF_OID")
+if [[ "$USE_INITIAL" == true && -n "${INITIAL_HEAD:-}" ]]; then
+  PR_ORIGINAL_HEAD="$INITIAL_HEAD"
+else
+  PR_ORIGINAL_HEAD=$(git rev-parse FETCH_HEAD 2>/dev/null || echo "$HEAD_REF_OID")
+fi
 
 if [[ $PARENT_COUNT -ge 3 ]]; then
   # ========================================
@@ -160,8 +328,9 @@ if [[ $PARENT_COUNT -ge 3 ]]; then
   # parent1 = マージ先, parent2 = PRブランチ
   # ========================================
   MERGE_STRATEGY="merge commit"
-  BASE_SHA=$(echo "$PARENT_LINE" | awk '{print $2}')
-  HEAD_SHA=$(echo "$PARENT_LINE" | awk '{print $3}')
+  MERGE_BASE_BRANCH=$(echo "$PARENT_LINE" | awk '{print $2}')
+  BASE_SHA=$(git merge-base "$PR_ORIGINAL_HEAD" "$MERGE_BASE_BRANCH" 2>/dev/null || echo "$MERGE_BASE_BRANCH")
+  HEAD_SHA="$PR_ORIGINAL_HEAD"
   ok "マージ戦略: 通常マージ"
 
 elif [[ $PARENT_COUNT -eq 2 ]]; then
@@ -213,17 +382,19 @@ echo ""
 
 # --- 既存の訓練用PRを検出 ---
 EXISTING_PR=$(gh pr list \
-  "${REPO_FLAG_ARGS[@]+"${REPO_FLAG_ARGS[@]}"}" \
+  "${PRACTICE_REPO_ARGS[@]+"${PRACTICE_REPO_ARGS[@]}"}" \
   --search "in:title [Review Practice]" \
   --state open \
   --json number,title,url \
-  --jq ".[] | select(.title | contains(\"#${PR_NUMBER}\") or contains(\"${PR_TITLE}\")) | .url" \
-  2>/dev/null | head -1)
+  2>/dev/null \
+  | jq -r --arg num "#${PR_NUMBER}" --arg title "$PR_TITLE" \
+    '.[] | select(.title | contains($num) or contains($title)) | .url' \
+  | head -1)
 
 if [[ -z "$EXISTING_PR" ]]; then
   # タイトル検索で見つからない場合、ブランチ名で探す
   EXISTING_PR=$(gh pr list \
-    "${REPO_FLAG_ARGS[@]+"${REPO_FLAG_ARGS[@]}"}" \
+    "${PRACTICE_REPO_ARGS[@]+"${PRACTICE_REPO_ARGS[@]}"}" \
     --head "${PREFIX}/pr-${PR_NUMBER}" \
     --state open \
     --json url \
@@ -243,9 +414,9 @@ if [[ -n "$EXISTING_PR" && "$EXISTING_PR" != "null" ]]; then
   # 既存PRをclose
   EXISTING_PR_NUM=$(echo "$EXISTING_PR" | grep -o '[0-9]*$')
   info "既存の訓練用PR #${EXISTING_PR_NUM} をcloseします..."
-  gh pr close "$EXISTING_PR_NUM" "${REPO_FLAG_ARGS[@]+"${REPO_FLAG_ARGS[@]}"}" 2>/dev/null || true
+  gh pr close "$EXISTING_PR_NUM" "${PRACTICE_REPO_ARGS[@]+"${PRACTICE_REPO_ARGS[@]}"}" 2>/dev/null || true
   # リモートブランチも削除
-  git push origin --delete "${PREFIX}/base-${PR_NUMBER}" "${PREFIX}/pr-${PR_NUMBER}" 2>/dev/null || true
+  git push "$PRACTICE_REMOTE" --delete "${PREFIX}/base-${PR_NUMBER}" "${PREFIX}/pr-${PR_NUMBER}" 2>/dev/null || true
 fi
 
 # --- ブランチ作成 ---
@@ -270,25 +441,34 @@ ok "作成: $BRANCH_HEAD"
 if [[ "$DRY_RUN" == true ]]; then
   echo ""
   warn "[dry-run] ここまで。以下が実行されるはずでした:"
-  echo "  git push origin $BRANCH_BASE $BRANCH_HEAD"
-  echo "  gh pr create --base $BRANCH_BASE --head $BRANCH_HEAD ..."
+  if [[ "$IN_PLACE" == true ]]; then
+    echo "  git push origin $BRANCH_BASE $BRANCH_HEAD"
+    echo "  gh pr create --base $BRANCH_BASE --head $BRANCH_HEAD ${REPO_FLAG_ARGS[*]+"${REPO_FLAG_ARGS[*]}"}"
+  else
+    echo "  [練習リポジトリ: ${PRACTICE_REPO}]"
+    echo "  git push ${PRACTICE_REMOTE} $BRANCH_BASE $BRANCH_HEAD"
+    echo "  gh pr create --base $BRANCH_BASE --head $BRANCH_HEAD --repo ${PRACTICE_REPO}"
+  fi
   git branch -D "$BRANCH_BASE" "$BRANCH_HEAD"
   exit 0
 fi
 
 # --- push & PR作成 ---
-info "ブランチをpush中..."
-git push origin "$BRANCH_BASE" "$BRANCH_HEAD"
+info "ブランチをpush中... (${PRACTICE_REMOTE})"
+git push "$PRACTICE_REMOTE" "$BRANCH_BASE" "$BRANCH_HEAD"
 ok "Push完了"
 
 info "レビュー訓練用PRを作成中..."
 
+# 元PRへのリンク（練習リポジトリからは#NNNで参照できないのでフルURL）
+ORIGINAL_PR_URL="https://github.com/${ORIGINAL_OWNER}/${ORIGINAL_REPO}/pull/${PR_NUMBER}"
+
 PRACTICE_BODY=$(cat <<EOF
-## 🎯 レビュー訓練用PR
+## レビュー訓練用PR
 
 | 項目 | 値 |
 |------|-----|
-| **元PR** | #${PR_NUMBER} — ${PR_TITLE} |
+| **元PR** | [${ORIGINAL_OWNER}/${ORIGINAL_REPO}#${PR_NUMBER}](${ORIGINAL_PR_URL}) -- ${PR_TITLE} |
 | **マージ戦略** | ${MERGE_STRATEGY} |
 | **変更ファイル数** | ${DIFF_FILES} |
 
@@ -311,7 +491,7 @@ NEW_PR_URL=$(gh pr create \
   --head "$BRANCH_HEAD" \
   --title "📝 [Review Practice] ${PR_TITLE}" \
   --body "$PRACTICE_BODY" \
-  "${REPO_FLAG_ARGS[@]+"${REPO_FLAG_ARGS[@]}"}" \
+  "${PRACTICE_REPO_ARGS[@]+"${PRACTICE_REPO_ARGS[@]}"}" \
   --label "review-practice" 2>&1 || true)
 
 # ラベルが存在しない場合はラベルなしで再試行
@@ -322,7 +502,7 @@ if echo "$NEW_PR_URL" | grep -qi "label\|not found"; then
     --head "$BRANCH_HEAD" \
     --title "📝 [Review Practice] ${PR_TITLE}" \
     --body "$PRACTICE_BODY" \
-    "${REPO_FLAG_ARGS[@]+"${REPO_FLAG_ARGS[@]}"}")
+    "${PRACTICE_REPO_ARGS[@]+"${PRACTICE_REPO_ARGS[@]}"}")
 fi
 
 echo ""
@@ -335,9 +515,17 @@ echo ""
 
 # --- クリーンアップコマンドを表示 ---
 PR_NUM_NEW=$(echo "$NEW_PR_URL" | grep -o '[0-9]*$')
+if [[ "$IN_PLACE" == true ]]; then
+  CLEANUP_REPO_FLAG="$REPO_FLAG"
+  CLEANUP_PUSH_TARGET="origin"
+else
+  CLEANUP_REPO_FLAG="--repo ${PRACTICE_REPO}"
+  CLEANUP_PUSH_TARGET="$PRACTICE_REMOTE"
+fi
+
 info "訓練が終わったらクリーンアップ:"
 cat <<EOF
-  gh pr close ${PR_NUM_NEW} ${REPO_FLAG}
-  git push origin --delete $BRANCH_BASE $BRANCH_HEAD
+  gh pr close ${PR_NUM_NEW} ${CLEANUP_REPO_FLAG}
+  git push ${CLEANUP_PUSH_TARGET} --delete $BRANCH_BASE $BRANCH_HEAD
   git branch -D $BRANCH_BASE $BRANCH_HEAD
 EOF
