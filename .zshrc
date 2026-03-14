@@ -19,7 +19,7 @@ setopt inc_append_history share_history
 setopt AUTO_CD
 
 # default editor
-export EDITOR=zed
+export EDITOR=nvim
 
 # cargo(Rust)
 export PATH="$HOME/.cargo/bin:$PATH"
