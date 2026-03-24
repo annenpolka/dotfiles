@@ -7,3 +7,4 @@ tags
 .config/lazygit/state.yml
 .config/vifm/vifminfo.json*
 **/.git-scratch/
+.config/helix/runtime/

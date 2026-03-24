@@ -1,2 +1,0 @@
-#!/bin/sh
-run-or-raise 'class="St"' ~/.config/instantos/default/terminal
