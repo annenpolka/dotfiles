@@ -273,7 +273,7 @@ main() {
 }
 
 # Only run main when executed directly (not sourced)
-# BASH_SOURCE is unset when piped via curl | bash, so default to empty string
-if [[ "${BASH_SOURCE[0]:-}" == "${0:-}" || -z "${BASH_SOURCE[0]:-}" ]]; then
+# Tests set _INIT_SH_SOURCED=1 before sourcing to skip main
+if [[ -z "${_INIT_SH_SOURCED:-}" ]]; then
     main "$@"
 fi

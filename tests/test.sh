@@ -166,6 +166,7 @@ cleanup_fake_dotfiles() {
 }
 
 # --- Source init.sh (functions only, main not executed) ---
+_INIT_SH_SOURCED=1
 source "${PROJECT_DIR}/init.sh"
 
 # ==============================================================================
