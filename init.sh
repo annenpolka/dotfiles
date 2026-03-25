@@ -111,11 +111,38 @@ brew_bundle() {
     fi
 
     log_info "Installing packages from Brewfile..."
-    if brew bundle --file="${DOTFILES_DIR}/Brewfile"; then
-        log_ok "Brew bundle complete"
-    else
-        log_warn "brew bundle had errors (some packages may not have installed)"
+
+    local brewfile="${DOTFILES_DIR}/Brewfile"
+    if [[ ! -f "${brewfile}" ]]; then
+        log_warn "Brewfile not found: ${brewfile}"
+        return
     fi
+
+    local name comment installed=0 skipped=0 failed=0
+    while IFS= read -r line <&3; do
+        # brew "name" # comment の形式をパース
+        [[ "${line}" =~ ^brew\ \"([^\"]+)\" ]] || continue
+        name="${BASH_REMATCH[1]}"
+        comment=""
+        [[ "${line}" =~ \#\ *(.*) ]] && comment="${BASH_REMATCH[1]}"
+
+        if brew list --formula "${name}" &>/dev/null; then
+            log_ok "${name} (already installed)${comment:+ — ${comment}}"
+            ((skipped++)) || true
+        else
+            log_info "Installing ${name}...${comment:+ (${comment})}"
+            if brew install "${name}" </dev/null &>/dev/null; then
+                log_ok "${name} installed${comment:+ — ${comment}}"
+                ((installed++)) || true
+            else
+                log_err "${name} failed to install"
+                ((failed++)) || true
+            fi
+        fi
+    done 3< "${brewfile}"
+
+    echo ""
+    log_info "Packages: ${installed} installed, ${skipped} already installed, ${failed} failed"
 }
 
 # --- Phase 4: Symlinks ---
