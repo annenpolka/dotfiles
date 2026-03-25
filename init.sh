@@ -111,8 +111,11 @@ brew_bundle() {
     fi
 
     log_info "Installing packages from Brewfile..."
-    brew bundle --file="${DOTFILES_DIR}/Brewfile"
-    log_ok "Brew bundle complete"
+    if brew bundle --file="${DOTFILES_DIR}/Brewfile"; then
+        log_ok "Brew bundle complete"
+    else
+        log_warn "brew bundle had errors (some packages may not have installed)"
+    fi
 }
 
 # --- Phase 4: Symlinks ---
