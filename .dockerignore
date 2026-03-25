@@ -1,0 +1,5 @@
+.git
+.git-scratch
+.config/helix/runtime
+scratch
+node_modules

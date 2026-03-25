@@ -1,0 +1,10 @@
+# dotfiles依存パッケージ（.zshrcや.config/から参照されるツール）
+brew "sheldon"     # zshプラグインマネージャ (.zshrc)
+brew "starship"    # クロスシェルプロンプト (sheldon/plugins.toml)
+brew "eza"         # モダンls (.zshrc aliases)
+brew "fzf"         # ファジーファインダー (.zshrc ghq-fzf)
+brew "ghq"         # リポジトリ管理 (.zshrc ghq-fzf)
+brew "zoxide"      # スマートcd (.zshrc)
+brew "direnv"      # ディレクトリ環境変数 (.zshrc)
+brew "yazi"        # ターミナルファイルマネージャ (.zshrc)
+brew "lazygit"     # ターミナルGit UI (.zshrc alias, .config/lazygit)
