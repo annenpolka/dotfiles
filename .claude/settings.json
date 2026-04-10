@@ -2,10 +2,11 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
     "DISABLE_MICROCOMPACT": "true",
-    "CLAUDE_CODE_NEW_INIT": 1
+    "CLAUDE_CODE_NEW_INIT": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "hooks": {
     "Stop": [
@@ -30,7 +31,10 @@
     "example-skills@anthropic-agent-skills": true,
     "document-skills@anthropic-agent-skills": true,
     "claude-api@anthropic-agent-skills": true,
-    "feature-dev@claude-plugins-official": true
+    "feature-dev@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "codex@openai-codex": true,
+    "decision-forensics@annenpolka-skills": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -38,6 +42,19 @@
         "source": "github",
         "repo": "anthropics/skills"
       }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "annenpolka-skills": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/annenpolka/ghq/github.com/annenpolka/skills"
+      },
+      "autoUpdate": true
     }
   },
   "language": "Japanese",

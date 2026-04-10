@@ -19,7 +19,7 @@ setopt inc_append_history share_history
 setopt AUTO_CD
 
 # default editor
-export EDITOR=nvim
+export EDITOR="zed --wait"
 
 # cargo(Rust)
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -148,7 +148,7 @@ EOF
 #   Requires `zsh` and `fzf`
 #   Download this file then, append `source path/to/fzf-ghq.zsh` to your `~/.zshrc`
 #   or copy & paste to your `~/.zshrc`
-# 
+#
 
 function _fzf_cd_ghq() {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
