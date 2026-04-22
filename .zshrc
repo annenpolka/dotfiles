@@ -48,6 +48,9 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
 elif [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+# Obsidian vault
+export OBSIDIAN_VAULT_PATH=~/Mechachang/
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        aliases                           │
 #  ╰──────────────────────────────────────────────────────────╯
@@ -237,7 +240,6 @@ export PATH="$HOME/.moon/bin:$PATH"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/annenpolka/.cache/lm-studio/bin"
 # End of LM Studio CLI section
-
 
 # opencode
 export PATH=/Users/annenpolka/.opencode/bin:$PATH

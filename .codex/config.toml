@@ -1,20 +1,45 @@
-projects = { "/Users/annenpolka/dotfiles" = { trust_level = "trusted" }, "/Users/annenpolka/junks/cclog" = { trust_level = "trusted" }, "/Users/annenpolka/junks/thinktank" = { trust_level = "trusted" } , "/Users/annenpolka/.codex" = { trust_level = "trusted" } , "/Users/annenpolka/junks/mcp-servers/roo-logger" = { trust_level = "trusted" } , "/Users/annenpolka/junks" = { trust_level = "trusted" } }
-
 approval_policy = "on-request"
-sandbox_mode    = "workspace-write"
-network_access  = true
 model_reasoning_effort = "high"
+network_access = true
+notify = [
+    "bash",
+    "/Users/annenpolka/.codex/notify_macos.sh",
+]
+sandbox_mode = "workspace-write"
 
-# notify = ["bash", "afplay /System/Library/Sounds/Glass.aiff"]
-notify = ["bash", "/Users/annenpolka/.codex/notify_macos.sh"]
+[mcp_servers.context7]
+args = [
+    "-y",
+    "@upstash/context7-mcp",
+]
+command = "npx"
+
+[projects."/Users/annenpolka/.codex"]
+trust_level = "trusted"
+
+[projects."/Users/annenpolka/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/annenpolka/junks"]
+trust_level = "trusted"
+
+[projects."/Users/annenpolka/junks/cclog"]
+trust_level = "trusted"
+
+[projects."/Users/annenpolka/junks/mcp-servers/roo-logger"]
+trust_level = "trusted"
+
+[projects."/Users/annenpolka/junks/thinktank"]
+trust_level = "trusted"
+
+[shell_environment_policy]
+inherit = "core"
+
+[shell_environment_policy.set]
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1"
+CLAUDE_CODE_NEW_INIT = "1"
+CLAUDE_CODE_NO_FLICKER = "1"
+DISABLE_MICROCOMPACT = "true"
 
 [tools]
 web_search = true
-
-# [mcp_servers.serena]
-# command = "uvx"
-# args = ["--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "codex"]
-
-[mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp"]

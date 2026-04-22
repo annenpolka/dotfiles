@@ -3,7 +3,8 @@
   "env": {
     "DISABLE_MICROCOMPACT": "true",
     "CLAUDE_CODE_NEW_INIT": "1",
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1"
   },
   "permissions": {
     "defaultMode": "auto"
@@ -28,21 +29,14 @@
   "enabledPlugins": {
     "plugin-dev@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "example-skills@anthropic-agent-skills": true,
-    "document-skills@anthropic-agent-skills": true,
-    "claude-api@anthropic-agent-skills": true,
     "feature-dev@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
     "codex@openai-codex": true,
-    "decision-forensics@annenpolka-skills": true
+    "decision-forensics@annenpolka-skills": true,
+    "revdiff@revdiff": true,
+    "skill-creator@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
-    "anthropic-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/skills"
-      }
-    },
     "openai-codex": {
       "source": {
         "source": "github",
@@ -55,15 +49,29 @@
         "path": "/Users/annenpolka/ghq/github.com/annenpolka/skills"
       },
       "autoUpdate": true
+    },
+    "revdiff": {
+      "source": {
+        "source": "github",
+        "repo": "umputun/revdiff"
+      }
     }
   },
   "language": "Japanese",
-  "effortLevel": "high",
-  "voiceEnabled": true,
+  "effortLevel": "xhigh",
+  "tui": "default",
+  "showThinkingSummaries": true,
   "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754041917747
   },
-  "advisorModel": "opus",
-  "showThinkingSummaries": true
+  "thinking": {
+    "type": "adaptive",
+    "display": "summarized"
+  },
+  "output_config": {
+    "effort": "max"
+  }
 }
