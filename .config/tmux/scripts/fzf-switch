@@ -1,0 +1,45 @@
+#!/bin/sh
+set -eu
+
+fzf_bin="${TMUX_FZF_BIN:-}"
+if [ -z "$fzf_bin" ]; then
+  fzf_bin="$(command -v fzf || true)"
+fi
+
+if [ -z "$fzf_bin" ]; then
+  tmux display-message "fzf not found"
+  exit 0
+fi
+
+mode="${1:-sessions}"
+
+run_fzf() {
+  "$fzf_bin" --layout=reverse --border=rounded --height=100% --info=inline "$@"
+}
+
+switch_session() {
+  selected="$(
+    tmux list-sessions -F '#{session_name}' |
+      run_fzf --prompt='session> '
+  )" || exit 0
+
+  [ -n "$selected" ] && tmux switch-client -t "$selected"
+}
+
+switch_window() {
+  selected="$(
+    tmux list-windows -a -F '#{session_name}:#{window_index}	#{session_name}:#{window_index}  #{window_name}  #{pane_current_command}  #{pane_current_path}' |
+      run_fzf --prompt='window> ' --delimiter='	' --with-nth=2..
+  )" || exit 0
+
+  target="$(printf '%s\n' "$selected" | cut -f 1)"
+  [ -n "$target" ] && tmux switch-client -t "$target"
+}
+
+case "$mode" in
+  sessions) switch_session ;;
+  windows) switch_window ;;
+  *)
+    tmux display-message "unknown fzf-switch mode: $mode"
+    ;;
+esac
