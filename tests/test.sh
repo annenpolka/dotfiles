@@ -253,6 +253,10 @@ group "Milestone 4: Brewfile exists"
 
 assert_file_exists "${PROJECT_DIR}/Brewfile" "Brewfile exists in repo root"
 
+for formula in tmux neovim python@3.13 fzf macism; do
+    assert_true "grep -qF 'brew \"${formula}\"' \"${PROJECT_DIR}/Brewfile\"" "Brewfile includes ${formula}"
+done
+
 # --- Milestone 6: macOS defaults ---
 
 group "Milestone 6: macos_defaults"
