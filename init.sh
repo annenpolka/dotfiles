@@ -25,16 +25,6 @@ EXCLUDE_ROOT=(
     ".codex"
 )
 
-EXCLUDE_NONHIDDEN=(
-    "scripts"
-    "scratch"
-    "tests"
-    "Dockerfile"
-    "init.sh"
-    "Brewfile"
-    "README.md"
-)
-
 # --- Logging ---
 log_ok()   { printf '\033[32m  ✓ %s\033[0m\n' "$*"; }
 log_err()  { printf '\033[31m  ✗ %s\033[0m\n' "$*" >&2; }
