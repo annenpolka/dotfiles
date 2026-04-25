@@ -256,6 +256,8 @@ assert_file_exists "${PROJECT_DIR}/Brewfile" "Brewfile exists in repo root"
 for formula in tmux neovim python@3.13 fzf macism; do
     assert_true "grep -qF 'brew \"${formula}\"' \"${PROJECT_DIR}/Brewfile\"" "Brewfile includes ${formula}"
 done
+assert_true "grep -qF 'tap \"morantron/tmux-fingers\"' \"${PROJECT_DIR}/Brewfile\"" "Brewfile includes tmux-fingers tap"
+assert_true "grep -qF 'brew \"tmux-fingers\"' \"${PROJECT_DIR}/Brewfile\"" "Brewfile includes tmux-fingers"
 
 # --- Milestone 6: macOS defaults ---
 

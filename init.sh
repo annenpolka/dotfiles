@@ -108,15 +108,36 @@ brew_bundle() {
         return
     fi
 
-    local name comment installed=0 skipped=0 failed=0
+    local type name comment tapped=0 installed=0 skipped=0 failed=0
     while IFS= read -r line <&3; do
-        # brew "name" # comment の形式をパース
-        [[ "${line}" =~ ^brew\ \"([^\"]+)\" ]] || continue
+        # tap "name" / brew "name" # comment の形式をパース
+        if [[ "${line}" =~ ^tap\ \"([^\"]+)\" ]]; then
+            type="tap"
+        elif [[ "${line}" =~ ^brew\ \"([^\"]+)\" ]]; then
+            type="brew"
+        else
+            continue
+        fi
+
         name="${BASH_REMATCH[1]}"
         comment=""
         [[ "${line}" =~ \#\ *(.*) ]] && comment="${BASH_REMATCH[1]}"
 
-        if brew list --formula "${name}" &>/dev/null; then
+        if [[ "${type}" == "tap" ]]; then
+            if brew tap | grep -qxF "${name}"; then
+                log_ok "${name} (already tapped)${comment:+ — ${comment}}"
+                ((skipped++)) || true
+            else
+                log_info "Tapping ${name}...${comment:+ (${comment})}"
+                if brew tap "${name}" </dev/null &>/dev/null; then
+                    log_ok "${name} tapped${comment:+ — ${comment}}"
+                    ((tapped++)) || true
+                else
+                    log_err "${name} failed to tap"
+                    ((failed++)) || true
+                fi
+            fi
+        elif brew list --formula "${name}" &>/dev/null; then
             log_ok "${name} (already installed)${comment:+ — ${comment}}"
             ((skipped++)) || true
         else
@@ -132,7 +153,7 @@ brew_bundle() {
     done 3< "${brewfile}"
 
     echo ""
-    log_info "Packages: ${installed} installed, ${skipped} already installed, ${failed} failed"
+    log_info "Brew dependencies: ${tapped} tapped, ${installed} installed, ${skipped} already present, ${failed} failed"
 }
 
 # --- Phase 4: Symlinks ---

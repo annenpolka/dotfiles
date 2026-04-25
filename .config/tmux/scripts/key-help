@@ -1,0 +1,156 @@
+#!/bin/sh
+set -eu
+
+fzf_bin="${TMUX_FZF_BIN:-}"
+if [ -z "$fzf_bin" ]; then
+  fzf_bin="$(command -v fzf || true)"
+fi
+
+describe_command() {
+  case "$1" in
+    *"@nvim_tmux_is_editor"*"C-h"*) printf 'move left, or create pane at edge' ;;
+    *"@nvim_tmux_is_editor"*"C-j"*) printf 'move down, or create pane at edge' ;;
+    *"@nvim_tmux_is_editor"*"C-k"*) printf 'move up, or create pane at edge' ;;
+    *"@nvim_tmux_is_editor"*"C-l"*) printf 'move right, or create pane at edge' ;;
+    *"@nvim_tmux_is_editor"*"C-;"*) printf 'toggle between Codex/last pane' ;;
+    *"display-menu"*) printf 'open tmux menu' ;;
+    *"switch-client -T prefix"*) printf 'enter prefix key table' ;;
+    *"copy-mode"*) printf 'enter copy mode' ;;
+    *"extrakto/scripts/open.sh"*) printf 'extract text/url/path from pane' ;;
+    *"@fingers-cli"*"--mode jump"*) printf 'jump to visible token with hints' ;;
+    *"@fingers-cli"*) printf 'pick visible token with hints' ;;
+    *"fzf-switch sessions"*) printf 'switch session with fzf' ;;
+    *"fzf-switch windows"*) printf 'switch window with fzf' ;;
+    *"key-help"*) printf 'show tmux key help' ;;
+    *"next-layout"*) printf 'select next layout' ;;
+    *"break-pane"*) printf 'break pane to new window' ;;
+    *"split-window -h"*) printf 'split pane horizontally' ;;
+    *"split-window"*) printf 'split pane vertically' ;;
+    *"list-buffers"*) printf 'list paste buffers' ;;
+    *"rename-session"*) printf 'rename session' ;;
+    *"rename-window"*) printf 'rename window' ;;
+    *"kill-window"*) printf 'kill window' ;;
+    *"kill-pane"*) printf 'kill pane' ;;
+    *"switch-client -p"*) printf 'previous client' ;;
+    *"switch-client -n"*) printf 'next client' ;;
+    *"select-window -t"*) printf 'select window' ;;
+    *"delete-buffer"*) printf 'delete paste buffer' ;;
+    *"move-window"*) printf 'move window' ;;
+    *"list-keys"*) printf 'describe key binding' ;;
+    *"command-prompt"*) printf 'prompt for command/input' ;;
+    *"choose-buffer"*) printf 'choose paste buffer' ;;
+    *"customize-mode"*) printf 'customize options' ;;
+    *"choose-client"*) printf 'choose client' ;;
+    *"select-layout -E"*) printf 'spread panes evenly' ;;
+    *"select-pane -M"*) printf 'clear marked pane' ;;
+    *"paste-buffer"*) printf 'paste buffer' ;;
+    *"new-window"*) printf 'create new window' ;;
+    *"detach-client"*) printf 'detach client' ;;
+    *"find-window"*) printf 'search panes/windows' ;;
+    *"display-message"*) printf 'show window information' ;;
+    *"last-window"*) printf 'previous current window' ;;
+    *"select-pane -m"*) printf 'toggle marked pane' ;;
+    *"next-window"*) printf 'next window' ;;
+    *"previous-window"*) printf 'previous window' ;;
+    *"display-panes"*) printf 'show pane numbers' ;;
+    *"refresh-client"*) printf 'refresh/redraw client' ;;
+    *"choose-tree -Zs"*) printf 'choose session' ;;
+    *"choose-tree -Zw"*) printf 'choose window' ;;
+    *"clock-mode"*) printf 'show clock' ;;
+    *"resize-pane -Z"*) printf 'zoom pane' ;;
+    *"swap-pane -U"*) printf 'swap pane up' ;;
+    *"swap-pane -D"*) printf 'swap pane down' ;;
+    *"show-messages"*) printf 'show tmux messages' ;;
+    *"select-pane -U"*) printf 'select pane up' ;;
+    *"select-pane -D"*) printf 'select pane down' ;;
+    *"select-pane -L"*) printf 'select pane left' ;;
+    *"select-pane -R"*) printf 'select pane right' ;;
+    *"select-layout even-horizontal"*) printf 'layout: even horizontal' ;;
+    *"select-layout even-vertical"*) printf 'layout: even vertical' ;;
+    *"select-layout main-horizontal"*) printf 'layout: main horizontal' ;;
+    *"select-layout main-vertical"*) printf 'layout: main vertical' ;;
+    *"select-layout tiled"*) printf 'layout: tiled' ;;
+    *"rotate-window -D"*) printf 'rotate panes backward' ;;
+    *"rotate-window"*) printf 'rotate panes' ;;
+    *"send-keys C-s"*) printf 'send C-s to pane' ;;
+    *"suspend-client"*) printf 'suspend client' ;;
+    *"resize-pane -L 5"*) printf 'resize pane left' ;;
+    *"resize-pane -D 5"*) printf 'resize pane down' ;;
+    *"resize-pane -U 5"*) printf 'resize pane up' ;;
+    *"resize-pane -R 5"*) printf 'resize pane right' ;;
+    *"tpm/bindings/install_plugins"*) printf 'install tmux plugins' ;;
+    *"tpm/bindings/update_plugins"*) printf 'update tmux plugins' ;;
+    *"tpm/bindings/clean_plugins"*) printf 'clean tmux plugins' ;;
+    *"tmux-resurrect/scripts/save.sh"*) printf 'save tmux session' ;;
+    *"tmux-resurrect/scripts/restore.sh"*) printf 'restore tmux session' ;;
+    *"tmux-yank/scripts/copy_pane_pwd.sh"*) printf 'copy pane path' ;;
+    *"tmux-yank/scripts/copy_line.sh"*) printf 'copy current line' ;;
+    *) printf '%s' "$1" ;;
+  esac
+}
+
+list_table() {
+  table="$1"
+
+  tmux list-keys -T "$table" |
+    awk -v table="$table" '
+      {
+        table_index = 0
+        for (i = 1; i <= NF; i++) {
+          if ($i == "-T") {
+            table_index = i
+            break
+          }
+        }
+        if (table_index == 0 || table_index + 2 > NF) {
+          next
+        }
+        key = $(table_index + 2)
+        gsub(/^"|"$/, "", key)
+        if (key == "\\") {
+          key = "\""
+        } else {
+          sub(/^\\/, "", key)
+        }
+        if (key ~ /(Mouse|Wheel|Click|Drag)/) {
+          next
+        }
+
+        command = ""
+        for (i = table_index + 3; i <= NF; i++) {
+          command = command (command == "" ? "" : " ") $i
+        }
+
+        printf "%s\t%s\t%s\n", table, key, command
+      }
+    ' |
+    while IFS="$(printf '\t')" read -r table_name key command; do
+      description="$(describe_command "$command")"
+      printf '%-8s %-8s %s\n' "$table_name" "$key" "$description"
+    done
+}
+
+list_keys() {
+  printf '%-8s %-8s %s\n' TABLE KEY ACTION
+  printf '%-8s %-8s %s\n' '--------' '--------' '------------------------------'
+  list_table root
+  list_table prefix
+}
+
+if [ "${TMUX_KEY_HELP_PLAIN:-}" = 1 ]; then
+  list_keys
+  exit 0
+fi
+
+if [ -n "$fzf_bin" ]; then
+  list_keys | "$fzf_bin" \
+    --layout=reverse \
+    --border=rounded \
+    --height=100% \
+    --info=inline \
+    --no-sort \
+    --header='Type to filter. root = no prefix, prefix = after C-s.' \
+    --prompt='tmux key> '
+else
+  list_keys | "${PAGER:-less}" -R
+fi
