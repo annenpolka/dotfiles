@@ -3,6 +3,10 @@ if [[ ":$FPATH:" != *":/Users/annenpolka/.zsh/completions:"* ]]; then export FPA
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                          envvars                         │
 #  ╰──────────────────────────────────────────────────────────╯
+if [[ -n "$GHOSTTY_RESOURCES_DIR" && -r "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration" ]]; then
+  source "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration"
+fi
+
 ## keybind
 bindkey -e
 ## auto cd
@@ -19,7 +23,7 @@ setopt inc_append_history share_history
 setopt AUTO_CD
 
 # default editor
-export EDITOR="zed --wait"
+export EDITOR="nvim"
 
 # cargo(Rust)
 export PATH="$HOME/.cargo/bin:$PATH"
