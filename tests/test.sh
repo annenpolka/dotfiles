@@ -379,6 +379,9 @@ link_config_dirs
 assert_link "${HOME}/.config/ghostty" "${DOTFILES_DIR}/.config/ghostty" ".config/ghostty linked"
 assert_link "${HOME}/.config/sheldon" "${DOTFILES_DIR}/.config/sheldon" ".config/sheldon linked"
 assert_link "${HOME}/.config/lazygit" "${DOTFILES_DIR}/.config/lazygit" ".config/lazygit linked"
+if is_macos; then
+    assert_link "${HOME}/Library/Application Support/com.mitchellh.ghostty/config" "${DOTFILES_DIR}/.config/ghostty/config" "Ghostty macOS config linked"
+fi
 
 cleanup_fake_dotfiles "${TMPDIR_M5}"
 

@@ -214,6 +214,12 @@ link_config_dirs() {
         dirname="$(basename "${dir}")"
         backup_and_link "${DOTFILES_DIR}/.config/${dirname}" "${HOME}/.config/${dirname}"
     done
+
+    if is_macos && [[ -f "${DOTFILES_DIR}/.config/ghostty/config" ]]; then
+        backup_and_link \
+            "${DOTFILES_DIR}/.config/ghostty/config" \
+            "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
+    fi
 }
 
 link_dev_tool_dirs() {
