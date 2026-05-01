@@ -9,6 +9,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "claude-opus-4-6[1m]",
   "hooks": {
     "Stop": [
       {
@@ -73,5 +74,7 @@
   },
   "output_config": {
     "effort": "max"
-  }
+  },
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true
 }
