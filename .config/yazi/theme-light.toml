@@ -3,7 +3,7 @@
 
 # If you want to dynamically override their content based on dark/light mode, you can specify two different flavors
 # for dark and light modes under `[flavor]`, and do so in those flavors instead.
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+#:schema https://yazi-rs.github.io/schemas/theme.json
 
 # vim:fileencoding=utf-8:foldmethod=marker
 
@@ -41,6 +41,7 @@ marker_copied   = { fg = "lightgreen",  bg = "lightgreen" }
 marker_cut      = { fg = "lightred",    bg = "lightred" }
 marker_marked   = { fg = "lightcyan",   bg = "lightcyan" }
 marker_selected = { fg = "lightyellow", bg = "lightyellow" }
+marker_symbol   = "│"
 
 # Count
 count_copied   = { fg = "white", bg = "green" }

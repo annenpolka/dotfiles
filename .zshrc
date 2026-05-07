@@ -250,3 +250,6 @@ export PATH=/Users/annenpolka/.opencode/bin:$PATH
 
 # git-wt completion
 eval "$(git wt --init zsh)"
+
+# OpenClaw Completion
+source "/Users/annenpolka/.openclaw/completions/openclaw.zsh"
