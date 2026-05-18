@@ -9,7 +9,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "claude-opus-4-6[1m]",
   "hooks": {
     "Stop": [
       {
@@ -28,13 +27,10 @@
     "command": "sh /Users/annenpolka/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "plugin-dev@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
     "codex@openai-codex": true,
-    "decision-forensics@annenpolka-skills": true,
-    "revdiff@revdiff": true,
     "skill-creator@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
@@ -63,6 +59,8 @@
   "tui": "default",
   "showThinkingSummaries": true,
   "skipDangerousModePermissionPrompt": true,
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "feedbackSurveyState": {
@@ -75,6 +73,5 @@
   "output_config": {
     "effort": "max"
   },
-  "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true
+  "model": "claude-opus-4-6[1m]"
 }
