@@ -8,3 +8,7 @@ tags
 .config/vifm/vifminfo.json*
 **/.git-scratch/
 .config/helix/runtime/
+.config/herdr/*.log
+.config/herdr/*.sock
+.config/herdr/session.json*
+.config/herdr/.plugins.lock

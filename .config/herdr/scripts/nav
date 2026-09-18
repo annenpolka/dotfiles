@@ -1,0 +1,45 @@
+#!/bin/sh
+# herdr pane navigation mirroring the tmux nvim-integration C-h/j/k/l bindings:
+#   - editor in the focused pane: forward the key to it
+#   - neighbor pane in that direction: focus it
+#   - at the edge: split toward that direction and focus the new pane
+# Usage: nav <left|down|up|right> [--no-forward]
+#   --no-forward skips the editor check (used by Neovim itself at its window edge).
+
+dir="$1"
+case "$dir" in
+  left) key=ctrl+h ;;
+  down) key=ctrl+j ;;
+  up) key=ctrl+k ;;
+  right) key=ctrl+l ;;
+  *) echo "usage: nav <left|down|up|right> [--no-forward]" >&2; exit 2 ;;
+esac
+
+herdr="${HERDR_BIN_PATH:-herdr}"
+pane="${HERDR_ACTIVE_PANE_ID:?HERDR_ACTIVE_PANE_ID is not set}"
+
+if [ "$2" != --no-forward ] &&
+  "$herdr" pane process-info --pane "$pane" |
+  jq -e '[.result.process_info.foreground_processes[].name] | any(test("^(nvim|vim|view|lvim|nvimdiff|vimdiff)$"))' >/dev/null; then
+  exec "$herdr" pane send-keys "$pane" "$key" >/dev/null
+fi
+
+at_edge=$("$herdr" pane edges --pane "$pane" | jq -r --arg d "$dir" '.result.edges[$d]')
+if [ "$at_edge" != "true" ]; then
+  exec "$herdr" pane focus --pane "$pane" --direction "$dir" >/dev/null
+fi
+
+cwd="${HERDR_ACTIVE_PANE_CWD:-$PWD}"
+case "$dir" in
+  right | down)
+    exec "$herdr" pane split "$pane" --direction "$dir" --cwd "$cwd" --focus >/dev/null
+    ;;
+  left | up)
+    # herdr only splits right/down; split, then move the new pane before the current one.
+    split_dir=right
+    [ "$dir" = up ] && split_dir=down
+    new=$("$herdr" pane split "$pane" --direction "$split_dir" --cwd "$cwd" --focus |
+      jq -r '.result.pane.pane_id // empty')
+    [ -n "$new" ] && exec "$herdr" pane swap --source-pane "$new" --target-pane "$pane" >/dev/null
+    ;;
+esac
