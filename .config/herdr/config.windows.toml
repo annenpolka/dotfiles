@@ -1,0 +1,13 @@
+# herdr configuration (Windows)
+# Symlinked as %APPDATA%\herdr\config.toml:
+#   New-Item -ItemType SymbolicLink -Path "$env:APPDATA\herdr\config.toml" `
+#     -Target "<dotfiles>\.config\herdr\config.windows.toml"
+# Keep shared settings in sync with config.toml.
+
+onboarding = false
+
+# Use PowerShell 7 (pwsh) for pane shells so the PowerShell 7 profile loads
+# (starship, zoxide, ghq+fzf, yazi, scoop completion, lazygit alias, ...).
+# Without this, herdr falls back to Windows PowerShell 5.1 (powershell.exe).
+[terminal]
+default_shell = "pwsh.exe"

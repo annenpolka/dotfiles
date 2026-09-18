@@ -1,0 +1,10 @@
+# herdr configuration (macOS / Linux)
+# Linked as ~/.config/herdr/config.toml by init.sh.
+# Windows reads config.windows.toml instead (it pins the pane shell to pwsh).
+# Full reference: `herdr --default-config`
+
+onboarding = false
+
+[terminal]
+# Unset: new panes use $SHELL (zsh).
+# default_shell = ""
