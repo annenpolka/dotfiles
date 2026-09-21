@@ -1,13 +1,16 @@
-# herdr configuration (macOS / Linux)
-# Linked as ~/.config/herdr/config.toml by init.sh.
-# Windows reads config.windows.toml instead (it pins the pane shell to pwsh).
-# Full reference: `herdr --default-config`
+# herdr configuration (Windows)
+# Symlinked as %APPDATA%\herdr\config.toml:
+#   New-Item -ItemType SymbolicLink -Path "$env:APPDATA\herdr\config.toml" `
+#     -Target "<dotfiles>\.config\herdr\config.windows.toml"
+# Keep shared settings in sync with config.toml.
 
 onboarding = false
 
+# Use PowerShell 7 (pwsh) for pane shells so the PowerShell 7 profile loads
+# (starship, zoxide, ghq+fzf, yazi, scoop completion, lazygit alias, ...).
+# Without this, herdr falls back to Windows PowerShell 5.1 (powershell.exe).
 [terminal]
-# Unset: new panes use $SHELL (zsh).
-# default_shell = ""
+default_shell = "pwsh.exe"
 
 [ui]
 # herdr-auto-title が自動命名するため、タブ作成時の名前入力をスキップ
@@ -15,20 +18,7 @@ prompt_new_tab_name = false
 # 外側ターミナルのタイトルに現在のタブ名を含める
 window_title = "{workspace} · {tab}"
 
-[experimental]
-# prefixモード中はホストのIMEを英数入力に切り替え、抜けたら元に戻す
-switch_ascii_input_source_in_prefix = true
-
-[ui.sound]
-enabled = true
-
-[ui.toast]
-delivery = "herdr"
-
 [keys]
-# tmux側のprefixはC-s（C-bはunbind済み）なので、tmux内でもC-bはherdrに届く
-prefix = "ctrl+b"
-
 # ペイン移動はctrl+h/j/k/lに任せ、prefix+h/j/k/lのデフォルト（focus_pane_*）は外す
 focus_pane_left = ""
 focus_pane_down = ""
@@ -42,30 +32,28 @@ previous_tab = ["prefix+h", "prefix+p"]
 next_tab = ["prefix+l", "prefix+n"]
 
 # tmux nvim-integration.conf と同じC-h/j/k/l: nvimならキーを渡し、それ以外はペイン移動、端なら分割
+# Windows ではカスタムコマンドが cmd.exe /d /c で実行されるため、Git Bash 経由で POSIX 版 nav を呼ぶ。
+# パスはこの dotfiles リポジトリの配置場所（リポジトリを移動したら要更新）。
 [[keys.command]]
 key = "ctrl+h"
 type = "shell"
-command = "$HOME/.config/herdr/scripts/nav left"
+command = 'C:\Users\lance\ghq\github.com\annenpolka\dotfiles\.config\herdr\scripts\nav.cmd left'
 description = "focus/split pane left (pass to nvim)"
 
 [[keys.command]]
 key = "ctrl+j"
 type = "shell"
-command = "$HOME/.config/herdr/scripts/nav down"
+command = 'C:\Users\lance\ghq\github.com\annenpolka\dotfiles\.config\herdr\scripts\nav.cmd down'
 description = "focus/split pane down (pass to nvim)"
 
 [[keys.command]]
 key = "ctrl+k"
 type = "shell"
-command = "$HOME/.config/herdr/scripts/nav up"
+command = 'C:\Users\lance\ghq\github.com\annenpolka\dotfiles\.config\herdr\scripts\nav.cmd up'
 description = "focus/split pane up (pass to nvim)"
 
 [[keys.command]]
 key = "ctrl+l"
 type = "shell"
-command = "$HOME/.config/herdr/scripts/nav right"
+command = 'C:\Users\lance\ghq\github.com\annenpolka\dotfiles\.config\herdr\scripts\nav.cmd right'
 description = "focus/split pane right (pass to nvim)"
-
-[theme]
-name = "gruvbox"
-auto_switch = false
