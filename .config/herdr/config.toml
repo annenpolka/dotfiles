@@ -8,3 +8,42 @@ onboarding = false
 [terminal]
 # Unset: new panes use $SHELL (zsh).
 # default_shell = ""
+
+[experimental]
+# prefixモード中はホストのIMEを英数入力に切り替え、抜けたら元に戻す
+switch_ascii_input_source_in_prefix = true
+
+[ui.sound]
+enabled = true
+
+[ui.toast]
+delivery = "herdr"
+
+[keys]
+# tmux側のprefixはC-s（C-bはunbind済み）なので、tmux内でもC-bはherdrに届く
+prefix = "ctrl+b"
+
+# tmux nvim-integration.conf と同じC-h/j/k/l: nvimならキーを渡し、それ以外はペイン移動、端なら分割
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/nav left"
+description = "focus/split pane left (pass to nvim)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/nav down"
+description = "focus/split pane down (pass to nvim)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/nav up"
+description = "focus/split pane up (pass to nvim)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/nav right"
+description = "focus/split pane right (pass to nvim)"
