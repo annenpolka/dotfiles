@@ -12,6 +12,12 @@ onboarding = false
 [terminal]
 default_shell = "pwsh.exe"
 
+[ui]
+# herdr-auto-title が自動命名するため、タブ作成時の名前入力をスキップ
+prompt_new_tab_name = false
+# 外側ターミナルのタイトルに現在のタブ名を含める
+window_title = "{workspace} · {tab}"
+
 # tmux nvim-integration.conf と同じC-h/j/k/l: nvimならキーを渡し、それ以外はペイン移動、端なら分割
 # Windows ではカスタムコマンドが cmd.exe /d /c で実行されるため、Git Bash 経由で POSIX 版 nav を呼ぶ。
 # パスはこの dotfiles リポジトリの配置場所（リポジトリを移動したら要更新）。

@@ -9,6 +9,12 @@ onboarding = false
 # Unset: new panes use $SHELL (zsh).
 # default_shell = ""
 
+[ui]
+# herdr-auto-title が自動命名するため、タブ作成時の名前入力をスキップ
+prompt_new_tab_name = false
+# 外側ターミナルのタイトルに現在のタブ名を含める
+window_title = "{workspace} · {tab}"
+
 [experimental]
 # prefixモード中はホストのIMEを英数入力に切り替え、抜けたら元に戻す
 switch_ascii_input_source_in_prefix = true
