@@ -29,6 +29,18 @@ delivery = "herdr"
 # tmux側のprefixはC-s（C-bはunbind済み）なので、tmux内でもC-bはherdrに届く
 prefix = "ctrl+b"
 
+# ペイン移動はctrl+h/j/k/lに任せ、prefix+h/j/k/lのデフォルト（focus_pane_*）は外す
+focus_pane_left = ""
+focus_pane_down = ""
+focus_pane_up = ""
+focus_pane_right = ""
+# サイドバーのエージェント一覧を上下に移動
+next_agent = "prefix+j"
+previous_agent = "prefix+k"
+# 横に並ぶタブバーを左右に移動（デフォルトのprefix+p/nも残す）
+previous_tab = ["prefix+h", "prefix+p"]
+next_tab = ["prefix+l", "prefix+n"]
+
 # tmux nvim-integration.conf と同じC-h/j/k/l: nvimならキーを渡し、それ以外はペイン移動、端なら分割
 [[keys.command]]
 key = "ctrl+h"
