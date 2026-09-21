@@ -245,11 +245,54 @@ export PATH="$HOME/.moon/bin:$PATH"
 export PATH="$PATH:/Users/annenpolka/.cache/lm-studio/bin"
 # End of LM Studio CLI section
 
-# opencode
-export PATH=/Users/annenpolka/.opencode/bin:$PATH
 
 # git-wt completion
 eval "$(git wt --init zsh)"
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/annenpolka/.local/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/annenpolka/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
+
 # OpenClaw Completion
-source "/Users/annenpolka/.openclaw/completions/openclaw.zsh"
+[ -f "/Users/annenpolka/.openclaw/completions/openclaw.zsh" ] && source "/Users/annenpolka/.openclaw/completions/openclaw.zsh"
+
+# fzf-tab: 最後のcompinitの後に読む（zsh-autosuggestions 等の widget ラップより前）
+# sheldon はクローンのみ。ここより後に compinit を足すと効かなくなる
+_fzf_tab_plugin="${HOME}/.local/share/sheldon/repos/github.com/Aloxaf/fzf-tab/fzf-tab.plugin.zsh"
+if [[ -r "${_fzf_tab_plugin}" ]]; then
+  source "${_fzf_tab_plugin}"
+  zstyle ':completion:*:git-checkout:*' sort false
+  zstyle ':completion:*:descriptions' format '[%d]'
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+  zstyle ':completion:*' menu no
+  zstyle ':fzf-tab:*' switch-group '<' '>'
+  if (( $+commands[eza] )); then
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+    zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+  fi
+  # fzfm: fzf-tabのメニュー内でMigemo検索
+  if [[ -r "$HOME/ghq/github.com/annenpolka/fzf-migemo/shell/fzf-tab.zsh" ]]; then
+    source "$HOME/ghq/github.com/annenpolka/fzf-migemo/shell/fzf-tab.zsh"
+    # Alt-Tab: 入力済みのローマ字をMigemo検索へ渡す
+    bindkey '^[^I' fzfm-complete
+  fi
+fi
+unset _fzf_tab_plugin
+
+# Added by Devin
+export PATH="/Users/annenpolka/.codeium/windsurf/bin:$PATH"

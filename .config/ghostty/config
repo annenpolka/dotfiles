@@ -19,3 +19,7 @@ shell-integration-features = cursor,title,sudo,ssh-env,ssh-terminfo,path
 
 # Use Cmd-T for a new window instead of a new tab.
 keybind = super+t=new_window
+
+# Deliver the tmux prefix before the Japanese IME handles Ctrl-S.
+# Match the physical key; tmux then switches the input source to English.
+keybind = ctrl+KeyS=text:\x13

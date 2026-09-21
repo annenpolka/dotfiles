@@ -38,3 +38,7 @@ key = "ctrl+l"
 type = "shell"
 command = "$HOME/.config/herdr/scripts/nav right"
 description = "focus/split pane right (pass to nvim)"
+
+[theme]
+name = "gruvbox"
+auto_switch = false

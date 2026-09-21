@@ -9,14 +9,16 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
-    "Stop": [
+    "SessionStart": [
       {
-        "matcher": "",
+        "matcher": "^(startup|resume|clear|compact|fork)$",
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff"
+            "command": "bash '/Users/annenpolka/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
           }
         ]
       }
@@ -31,7 +33,8 @@
     "feature-dev@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
     "codex@openai-codex": true,
-    "skill-creator@claude-plugins-official": true
+    "skill-creator@claude-plugins-official": true,
+    "typesafe@typesafe-ai": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -52,10 +55,24 @@
         "source": "github",
         "repo": "umputun/revdiff"
       }
+    },
+    "typesafe-ai": {
+      "source": {
+        "source": "github",
+        "repo": "typesafe-ai/skills"
+      }
     }
   },
   "language": "Japanese",
-  "effortLevel": "xhigh",
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "high"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "default",
   "showThinkingSummaries": true,
   "skipDangerousModePermissionPrompt": true,
@@ -72,6 +89,5 @@
   },
   "output_config": {
     "effort": "max"
-  },
-  "model": "claude-opus-4-6[1m]"
+  }
 }

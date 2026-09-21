@@ -29,3 +29,9 @@ apply = ['defer']
 
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
+
+# Clone only: fzf-tab must be sourced after the last `compinit` in .zshrc.
+# `eval "$(sheldon source)"` runs too early for that.
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+apply = []

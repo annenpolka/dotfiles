@@ -33,10 +33,10 @@ direction = "Natural"
 
 [decorations.inactive.dim]
 opacity = -0.05
-opacity_night = 0
+opacity_night = -0.01
 
 [decorations.active.border]
-enabled = false
+enabled = true
 color = "#89b4fa"
 opacity = 0.9
 width = 2.0
