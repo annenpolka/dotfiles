@@ -19,10 +19,10 @@ function global:prompt {
         if ($cwd.StartsWith($HOME, [StringComparison]::OrdinalIgnoreCase)) {
             $cwd = '~' + $cwd.Substring($HOME.Length)
         }
-        # Keep only the last two components, like zsh's %2~: herdr truncates
+        # Keep only the last component, like zsh's %1~: herdr truncates
         # the end of a long value, which would hide the final directory name
         $parts = @($cwd -split '[\\/]' | Where-Object { $_ })
-        if ($parts.Count -gt 2) { $cwd = $parts[-2..-1] -join '\' }
+        if ($parts.Count -gt 1) { $cwd = $parts[-1] }
         $herdr = if ($env:HERDR_BIN_PATH) { $env:HERDR_BIN_PATH } else { 'herdr' }
         $exitCode = $global:LASTEXITCODE
         & $herdr pane report-metadata $env:HERDR_PANE_ID --source user:cwd --token "cwd=$cwd" *> $null

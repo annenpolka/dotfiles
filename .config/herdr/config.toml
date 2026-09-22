@@ -19,7 +19,7 @@ window_title = "{workspace} · {tab}"
 # paneトークン（herdr-auto-titleのペイン名）は先頭にディレクトリ/ブランチ名が付き、狭いサイドバーで作業内容が隠れる
 [ui.sidebar.agents]
 # 2行目はスペース名の代わりにcwdを先頭に出し、幅を食うタブ名は出さない。$cwdはシェルがpane report-metadataで報告する値
-# （macOS/Linux: .zshrc、Windows: scripts/report-cwd.ps1）。herdrは末尾を…で切るので、末尾2階層だけを報告する
+# （macOS/Linux: .zshrc、Windows: scripts/report-cwd.ps1）。herdrは末尾を…で切るので、最後のディレクトリ名だけを報告する
 rows = [["state_icon", "terminal_title_stripped"], ["$cwd", "agent"]]
 
 [experimental]
