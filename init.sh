@@ -298,6 +298,39 @@ set_default_shell() {
     log_ok "Default shell changed to zsh"
 }
 
+# --- Phase 7: herdr Plugins ---
+
+HERDR_PLUGINS=(
+    "herdr.auto-title kryptamine/herdr-auto-title"  # タブ・ペインの自動命名（config.tomlのprompt_new_tab_name=falseが前提にする）
+)
+
+install_herdr_plugins() {
+    if ! command_exists herdr; then
+        log_warn "herdr not found, skipping herdr plugins"
+        return
+    fi
+    # herdrはインストール時にプラグインをソースからビルドする
+    if ! command_exists go; then
+        log_warn "go not found, skipping herdr plugins (herdr builds them from source)"
+        return
+    fi
+
+    log_info "Installing herdr plugins..."
+
+    local entry id repo installed
+    installed="$(herdr plugin list 2>/dev/null || true)"
+    for entry in "${HERDR_PLUGINS[@]}"; do
+        read -r id repo <<< "${entry}"
+        if grep -qF -- "- ${id} " <<< "${installed}"; then
+            log_ok "${id} (already installed)"
+        elif herdr plugin install "${repo}" -y </dev/null &>/dev/null; then
+            log_ok "${id} installed from ${repo}"
+        else
+            log_err "${id} failed to install (run 'herdr plugin install ${repo}' manually)"
+        fi
+    done
+}
+
 # --- Main (entry point) ---
 main() {
     echo ""
@@ -311,6 +344,7 @@ main() {
     create_symlinks
     macos_defaults
     set_default_shell
+    install_herdr_plugins
 
     log_ok "Bootstrap complete! Open a new terminal to apply changes."
     echo ""

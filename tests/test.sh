@@ -415,5 +415,66 @@ assert_not_exists "${HOME}/.git" ".git not linked"
 
 cleanup_fake_dotfiles "${TMPDIR_M5}"
 
+# --- Milestone 8: install_herdr_plugins ---
+
+# 偽のherdr/goをPATHに置き、呼び出しをログに残す
+setup_fake_herdr() {
+    local bindir="$1" listed="$2"
+    mkdir -p "${bindir}"
+    cat > "${bindir}/herdr" <<EOF
+#!/usr/bin/env bash
+echo "\$*" >> "${bindir}/calls.log"
+if [[ "\$1 \$2" == "plugin list" ]]; then
+    printf '%s\n' "${listed}"
+fi
+EOF
+    printf '#!/usr/bin/env bash\n' > "${bindir}/go"
+    chmod +x "${bindir}/herdr" "${bindir}/go"
+}
+
+ORIG_PATH="${PATH}"
+
+group "Milestone 8: install_herdr_plugins - installs missing plugin"
+
+FAKE_BIN="$(mktemp -d)/bin"
+setup_fake_herdr "${FAKE_BIN}" "No plugins installed."
+PATH="${FAKE_BIN}:${ORIG_PATH}"
+output="$(install_herdr_plugins 2>&1)"
+assert_true 'grep -qxF "plugin install kryptamine/herdr-auto-title -y" "${FAKE_BIN}/calls.log"' "runs herdr plugin install for auto-title"
+assert_true '[[ "${output}" == *"herdr.auto-title installed"* ]]' "reports installation"
+PATH="${ORIG_PATH}"
+
+group "Milestone 8: install_herdr_plugins - skips installed plugin"
+
+FAKE_BIN="$(mktemp -d)/bin"
+setup_fake_herdr "${FAKE_BIN}" "- herdr.auto-title (Auto Title) enabled [github:kryptamine/herdr-auto-title@abc]"
+PATH="${FAKE_BIN}:${ORIG_PATH}"
+output="$(install_herdr_plugins 2>&1)"
+assert_false 'grep -q "plugin install" "${FAKE_BIN}/calls.log"' "does not reinstall"
+assert_true '[[ "${output}" == *"already installed"* ]]' "reports already installed"
+PATH="${ORIG_PATH}"
+
+group "Milestone 8: install_herdr_plugins - missing tools"
+
+FAKE_BIN="$(mktemp -d)/bin"
+setup_fake_herdr "${FAKE_BIN}" "No plugins installed."
+rm "${FAKE_BIN}/go"
+if command_exists go; then
+    assert_true 'true' "go is installed on this machine (go-missing branch not testable)"
+else
+    PATH="${FAKE_BIN}:${ORIG_PATH}"
+    output="$(install_herdr_plugins 2>&1)"
+    assert_true '[[ "${output}" == *"go not found"* ]]' "skips when go is missing"
+    assert_false '[[ -f "${FAKE_BIN}/calls.log" ]]' "does not call herdr without go"
+    PATH="${ORIG_PATH}"
+fi
+
+if command_exists herdr; then
+    assert_true 'true' "herdr is installed on this machine (herdr-missing branch not testable)"
+else
+    output="$(install_herdr_plugins 2>&1)"
+    assert_true '[[ "${output}" == *"herdr not found"* ]]' "skips when herdr is missing"
+fi
+
 # --- Print Summary ---
 summary
