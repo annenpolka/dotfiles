@@ -295,10 +295,11 @@ fi
 unset _fzf_tab_plugin
 
 # herdr: サイドバーのエージェント行に出す $cwd トークンを、ディレクトリ移動のたびに報告する
+# 狭いサイドバーでも末尾のディレクトリ名が残るよう、%2~ で末尾2階層（~配下は~起点）に縮める
 if [[ -n "$HERDR_PANE_ID" ]]; then
   _herdr_report_cwd() {
     "${HERDR_BIN_PATH:-herdr}" pane report-metadata "$HERDR_PANE_ID" --source user:cwd \
-      --token "cwd=${PWD/#$HOME/~}" &>/dev/null &!
+      --token "cwd=${(%):-%2~}" &>/dev/null &!
   }
   chpwd_functions+=(_herdr_report_cwd)
   _herdr_report_cwd

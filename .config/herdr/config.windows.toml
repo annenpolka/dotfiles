@@ -21,9 +21,9 @@ window_title = "{workspace} · {tab}"
 # エージェント行の1行目にエージェント自身のタイトル（作業内容）を出し、同じタブの同種エージェントを見分けられるようにする
 # paneトークン（herdr-auto-titleのペイン名）は先頭にディレクトリ/ブランチ名が付き、狭いサイドバーで作業内容が隠れる
 [ui.sidebar.agents]
-# 2行目はスペース名の代わりにcwdを出す。$cwdはシェルがpane report-metadataで報告する値
-# （macOS/Linux: .zshrc、Windows: scripts/report-cwd.ps1）
-rows = [["state_icon", "terminal_title_stripped"], ["agent", "$cwd", "tab"]]
+# 2行目はスペース名の代わりにcwdを先頭に出し、幅を食うタブ名は出さない。$cwdはシェルがpane report-metadataで報告する値
+# （macOS/Linux: .zshrc、Windows: scripts/report-cwd.ps1）。herdrは末尾を…で切るので、末尾2階層だけを報告する
+rows = [["state_icon", "terminal_title_stripped"], ["$cwd", "agent"]]
 
 [keys]
 # ペイン移動はctrl+h/j/k/lに任せ、prefix+h/j/k/lのデフォルト（focus_pane_*）は外す
